@@ -1,6 +1,11 @@
 # dating-chat-app
 
-> My groovy Nuxt.js project
+## environment
+
+- Vuetify.js
+- Axios, Progressive Web App (PWA) Support
+- ESLint
+- Single Page App
 
 ## Build Setup
 
