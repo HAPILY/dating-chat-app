@@ -7,9 +7,15 @@
           aspect-ratio="1"
           max-height="200"
         />
+        <v-btn icon>
+          <v-icon>mdi-camera</v-icon>
+        </v-btn>
       </div>
       <div class="face-image">
         <v-img :src="profile.face" />
+        <v-btn icon>
+          <v-icon>mdi-camera</v-icon>
+        </v-btn>
       </div>
     </div>
     <div class="profile">
@@ -47,10 +53,19 @@ export default {
   .image-wrap {
     height: 300px;
 
-    .background-image {}
+    .background-image {
+      display: flex;
+      align-items: flex-end;
+      > button {
+        position: absolute;
+        right: 0;
+        background-color: rgb(0, 0, 0, 0.7);
+      }
+    }
     .face-image {
       position: absolute;
-      display: block;
+      display: flex;
+      align-items: flex-end;
       width: 168px;
       height: 168px;
       top: 115px;
@@ -61,6 +76,12 @@ export default {
 
       > div {
         border-radius: 100%;
+      }
+      > button {
+        position: absolute;
+        right: 0;
+        background-color: rgb(0, 0, 0, 1);
+        border: 1px solid #FFF;
       }
     }
   }
