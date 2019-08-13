@@ -85,6 +85,14 @@ export default {
   .transition-list {
     display: none;
   }
+  .nav-drawer {
+    a {
+      padding: 10px;
+      .v-list-item__action {
+        margin-right: 10px !important;
+      }
+    }
+  }
 }
 
 .header {
@@ -92,7 +100,6 @@ export default {
     width: 70px;
     margin: 0 10px;
     text-align: center;
-    line-height: 1;
 
     > a {
       color: color(white, base)
