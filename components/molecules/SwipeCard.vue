@@ -84,7 +84,6 @@ export default {
       }, 300)
     },
     isCur (index) {
-      console.log(index)
       return index === 0 && this.contents[index].id === this.nowKey
     },
     reset () {
