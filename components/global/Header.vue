@@ -79,6 +79,21 @@ export default {
   .transition-list {
     display: flex;
   }
+  .header {
+    &-icon {
+      width: 70px;
+      margin: 0 10px;
+      text-align: center;
+
+      > a {
+        color: color(white, base)
+      }
+    }
+
+    &-name {
+      font-size: 14px;
+    }
+  }
 }
 
 @include media (sm) {
@@ -88,26 +103,11 @@ export default {
   .nav-drawer {
     a {
       padding: 10px;
+      color: color(white, base);
       .v-list-item__action {
         margin-right: 10px !important;
       }
     }
-  }
-}
-
-.header {
-  &-icon {
-    width: 70px;
-    margin: 0 10px;
-    text-align: center;
-
-    > a {
-      color: color(white, base)
-    }
-  }
-
-  &-name {
-    font-size: 14px;
   }
 }
 </style>
