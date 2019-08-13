@@ -82,7 +82,7 @@ export default {
   build: {
     loaders: {
       scss: {
-        data: `@import '~assets/scss//index.scss';`
+        data: `@import '~assets/scss/index.scss';`
       }
     },
     /*
