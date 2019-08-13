@@ -25,6 +25,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/scss/index.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -79,6 +80,11 @@ export default {
   ** Build configuration
   */
   build: {
+    loaders: {
+      scss: {
+        data: `@import '~assets/scss/index.scss';`
+      }
+    },
     /*
     ** You can extend webpack config here
     */

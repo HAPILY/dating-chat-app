@@ -1,0 +1,25 @@
+@mixin media($breakpoint1, $breakpoint2: false, $breakpoint3: false, $breakpoint4: false) {
+  @if ($breakpoint4) {
+    @media #{breakpoint($breakpoint1)}, #{breakpoint($breakpoint2)}, #{breakpoint($breakpoint3)}, #{breakpoint($breakpoint4)} {
+      @content;
+    }
+  }
+
+  @if ($breakpoint3) {
+    @media #{breakpoint($breakpoint1)}, #{breakpoint($breakpoint2)}, #{breakpoint($breakpoint3)} {
+      @content;
+    }
+  }
+
+  @else if ($breakpoint2) {
+    @media #{breakpoint($breakpoint1)}, #{breakpoint($breakpoint2)} {
+      @content;
+    }
+  }
+
+  @else {
+    @media #{breakpoint($breakpoint1)} {
+      @content;
+    }
+  }
+}
