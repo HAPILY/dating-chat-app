@@ -1,16 +1,31 @@
 <template>
   <div class="mypage-container">
     <div class="image-wrap">
-      <BackgroundImage :profile="profile" :is-edit="false" />
-      <FaceImage :profile="profile" :is-edit="false" />
+      <BackgroundImage :profile="profile" />
+      <FaceImage :profile="profile" />
     </div>
     <div class="profile">
-      <div class="name">
-        {{ profile.name }}
+      <v-text-field
+        v-model="name"
+        class="input-name"
+        label="名前"
+      />
+      <v-textarea
+        v-model="detail"
+        class="input-detail"
+        label="自己紹介"
+        rows="10"
+        auto-grow
+      />
+      <div class="header-label">
+        詳細プロフィール
       </div>
-      <div class="detail">
-        <p>{{ profile.detail }}</p>
-      </div>
+      <v-text-field
+        v-model="age"
+        class="input-age"
+        label="年齢"
+        type="number"
+      />
     </div>
   </div>
 </template>
@@ -20,7 +35,7 @@ import BackgroundImage from '@/components/molecules/BackgroundImage/BackgroundIm
 import FaceImage from '@/components/molecules/FaceImage/FaceImage'
 
 export default {
-  name: 'Mypage',
+  name: 'Profile',
   components: {
     BackgroundImage,
     FaceImage
@@ -37,11 +52,35 @@ export default {
         face: 'http://placehold.jp/24/cc9999/993333/650x650.png'
       }
     }
+  },
+  computed: {
+    name () {
+      return this.profile.name
+    },
+    detail () {
+      return this.profile.detail
+    },
+    age: () => 25
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@include media (sm) {
+  .input {
+    &-name,
+    &-detail,
+    &-age {
+      margin: 0 10px;
+    }
+  }
+  .header-label {
+    font-size: 22px;
+    margin: 10px 10px 30px 10px !important;
+    font-weight: bold;
+  }
+}
+
 .mypage-container {
   position: relative;
 
@@ -49,16 +88,10 @@ export default {
     height: 350px;
   }
 
-  .name {
-    font-size: 26px;
+  .header-label {
+    font-size: 22px;
+    margin: 10px 10px 30px 0px;
     font-weight: bold;
-    text-align: center;
-  }
-  .detail {
-    line-height: 1.4;
-    > p {
-      white-space: pre-line;
-    }
   }
 }
 </style>

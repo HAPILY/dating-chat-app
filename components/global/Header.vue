@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer class="nav-drawer" v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" class="nav-drawer" app>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -28,7 +28,9 @@
         >
           <nuxt-link :to="item.to">
             <v-icon>{{ item.icon }}</v-icon>
-            <div class="header-name">{{ item.title }}</div>
+            <div class="header-name">
+              {{ item.title }}
+            </div>
           </nuxt-link>
         </div>
       </div>
@@ -45,9 +47,8 @@
               <v-icon>mdi-settings</v-icon>
             </v-btn>
           </template>
-          <v-list>
+          <v-list class="setting-item">
             <v-list-item
-              class="setting-item"
               v-for="(item, i) in settingItems"
               :key="i"
             >

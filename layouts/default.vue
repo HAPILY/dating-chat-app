@@ -2,7 +2,9 @@
   <v-app dark>
     <Header />
     <v-content>
-      <nuxt />
+      <v-container>
+        <nuxt />
+      </v-container>
     </v-content>
     <v-footer app>
       <span>&copy; 2019</span>
@@ -25,6 +27,9 @@ export default {
   .v-content {
     padding: 0px 0px 36px 0 !important;
   }
+}
+.container {
+  margin: auto;
 }
 .v-content {
   transition: none;
