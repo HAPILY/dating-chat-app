@@ -27,6 +27,15 @@
         type="number"
       />
     </div>
+    <div class="btn-wrap">
+      <v-btn
+        class="send-btn"
+        color="primary"
+        dark
+      >
+        更新
+      </v-btn>
+    </div>
   </div>
 </template>
 
@@ -67,17 +76,24 @@ export default {
 
 <style lang="scss" scoped>
 @include media (sm) {
-  .input {
-    &-name,
-    &-detail,
-    &-age {
-      margin: 0 10px;
-    }
-  }
   .header-label {
     font-size: 22px;
     margin: 10px 10px 30px 10px !important;
     font-weight: bold;
+  }
+  .btn-wrap {
+    margin: 0 10px 20px;
+
+    .send-btn {
+      width: 100%;
+    }
+  }
+}
+
+@include media (xl, lg, md) {
+  .btn-wrap {
+    margin: 0 10px 20px;
+    text-align: right;
   }
 }
 
@@ -92,6 +108,10 @@ export default {
     font-size: 22px;
     margin: 10px 10px 30px 0px;
     font-weight: bold;
+  }
+
+  .profile {
+    padding: 10px;
   }
 }
 </style>
