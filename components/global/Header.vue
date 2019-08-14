@@ -133,6 +133,7 @@ export default {
     display: none;
   }
   .nav-drawer {
+    z-index: 11;
     a {
       padding: 10px;
       color: color(white, base);
