@@ -72,6 +72,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@include media (xl, lg) {
+  .header {
+    position: initial;
+  }
+}
 @include media (xl, lg, md) {
   .nav-drawer, .hamburger-icon {
     display: none;
