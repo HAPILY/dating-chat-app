@@ -5,7 +5,7 @@
         <v-img
           :src="profile.background"
           aspect-ratio="1"
-          max-height="200"
+          max-height="250"
         />
         <v-btn icon>
           <v-icon>mdi-camera</v-icon>
@@ -51,7 +51,7 @@ export default {
   position: relative;
 
   .image-wrap {
-    height: 300px;
+    height: 350px;
 
     .background-image {
       display: flex;
@@ -68,9 +68,6 @@ export default {
       align-items: flex-end;
       width: 168px;
       height: 168px;
-      top: 115px;
-      left: 90px;
-      margin-top: 0;
       padding: 1px;
       box-shadow: none;
 
@@ -96,6 +93,22 @@ export default {
     > p {
       white-space: pre-line;
     }
+  }
+}
+@include media (xl, lg, md) {
+  .face-image {
+    top: 165px;
+    left: 90px;
+    margin-top: 0;
+  }
+}
+@include media (sm) {
+  .face-image {
+    top: 165px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
   }
 }
 </style>

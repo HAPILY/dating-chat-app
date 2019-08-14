@@ -2,9 +2,7 @@
   <v-app dark>
     <Header />
     <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
     <v-footer app>
       <span>&copy; 2019</span>
@@ -21,3 +19,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@include media (xl, lg) {
+  .v-content {
+    padding: 0px 0px 36px 0 !important;
+  }
+}
+.v-content {
+  transition: none;
+}
+</style>
