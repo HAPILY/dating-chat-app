@@ -25,24 +25,13 @@
 </template>
 
 <script>
+import CONST from '@/const'
+
 export default {
   name: 'setting',
   data () {
     return {
-      items: [
-        {
-          icon: 'mdi-account',
-          title: 'プロフィール'
-        },
-        {
-          icon: 'mdi-folder-account',
-          title: 'アカウント'
-        },
-        {
-          icon: 'mdi-account-card-details',
-          title: 'プライバシー管理'
-        }
-      ]
+      items: CONST.Setting.items
     }
   }
 }
