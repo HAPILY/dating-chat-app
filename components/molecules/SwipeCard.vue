@@ -237,10 +237,10 @@ export default {
   display: block;
 }
 .card-wrapper {
-  background: #fff;
+  background: color(white, base);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: color(white, base);
   padding: 10px;
   width: 360px;
   height: 360px;
@@ -250,7 +250,7 @@ export default {
   transition: none !important;
 }
 .avatar {
-  background: #222;
+  background: color(black, dark);
   width: 340px;
   height: 340px;
 }
