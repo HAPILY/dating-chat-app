@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer class="nav-drawer" v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" class="nav-drawer" app>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -28,43 +28,51 @@
         >
           <nuxt-link :to="item.to">
             <v-icon>{{ item.icon }}</v-icon>
-            <div class="header-name">{{ item.title }}</div>
+            <div class="header-name">
+              {{ item.title }}
+            </div>
           </nuxt-link>
         </div>
       </div>
       <v-toolbar-title v-text="title" />
+      <div class="setting-icon">
+        <nuxt-link class="setting-link" to="/Mypage/setting">
+          <v-btn class="setting-btn-sp" icon>
+            <v-icon>mdi-settings</v-icon>
+          </v-btn>
+        </nuxt-link>
+        <v-menu bottom left>
+          <template v-slot:activator="{ on }">
+            <v-btn class="setting-btn-pc" icon v-on="on">
+              <v-icon>mdi-settings</v-icon>
+            </v-btn>
+          </template>
+          <v-list class="setting-item">
+            <v-list-item
+              v-for="(item, i) in settingItems"
+              :key="i"
+            >
+              <nuxt-link :to="item.to">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </nuxt-link>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </v-app-bar>
   </div>
 </template>
 
 <script>
+import CONST from '@/const'
+
 export default {
   name: 'Header',
   data () {
     return {
       drawer: false,
-      items: [
-        {
-          icon: 'mdi-map-marker-question',
-          title: '性格診断',
-          to: '/Personality'
-        },
-        {
-          icon: 'mdi-image-album',
-          title: '恋愛コラム',
-          to: '/Column'
-        },
-        {
-          icon: 'mdi-magnify',
-          title: '探す',
-          to: '/TopPersonality'
-        },
-        {
-          icon: 'mdi-account',
-          title: 'マイページ',
-          to: '/Mypage'
-        }
-      ],
+      items: CONST.Header.items,
+      settingItems: CONST.Setting.items,
       title: 'Vuetify.js'
     }
   }
@@ -99,6 +107,26 @@ export default {
       font-size: 14px;
     }
   }
+  .setting-btn-sp {
+    display: none;
+  }
+  .setting-item {
+    border-bottom: 1px solid #FFF;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    > a {
+      display: inline-block;
+      width: 100%;
+      padding: 14px;
+
+      &:hover {
+        background-color: rgba(217, 217, 217, 0.3);
+      }
+    }
+  }
 }
 
 @include media (sm) {
@@ -106,6 +134,7 @@ export default {
     display: none;
   }
   .nav-drawer {
+    z-index: 11;
     a {
       padding: 10px;
       color: color(white, base);
@@ -114,5 +143,13 @@ export default {
       }
     }
   }
+  .setting-btn-pc {
+    display: none;
+  }
+}
+.setting-icon {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
 }
 </style>
