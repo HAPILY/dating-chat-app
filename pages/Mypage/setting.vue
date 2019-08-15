@@ -6,18 +6,18 @@
       class="setting-list"
     >
       <v-list-item-avatar class="setting-icon">
-        <v-icon
-          v-text="item.icon"
-        ></v-icon>
+        <v-icon v-text="item.icon" />
       </v-list-item-avatar>
 
       <v-list-item-content>
-        <v-list-item-title v-text="item.title"></v-list-item-title>
+        <v-list-item-title v-text="item.title" />
       </v-list-item-content>
 
       <v-list-item-action class="setting-icon">
         <v-btn icon>
-          <v-icon color="grey lighten-1">mdi-chevron-right</v-icon>
+          <v-icon color="grey lighten-1">
+            mdi-chevron-right
+          </v-icon>
         </v-btn>
       </v-list-item-action>
     </v-list-item>
@@ -28,7 +28,7 @@
 import CONST from '@/const'
 
 export default {
-  name: 'setting',
+  name: 'Setting',
   data () {
     return {
       items: CONST.Setting.items
