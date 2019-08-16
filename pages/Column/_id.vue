@@ -49,5 +49,6 @@ export default {
 }
 .content {
   margin-top: 20px;
+  line-height: 1.4;
 }
 </style>
