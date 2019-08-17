@@ -22,6 +22,6 @@ export default {
 
 <style lang="scss" scoped>
 .personality-select-page {
-  min-height: 500px;
+  min-height: 450px;
 }
 </style>
