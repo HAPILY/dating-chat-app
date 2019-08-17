@@ -32,7 +32,7 @@ export default {
     },
     {
       id: 7,
-      name: '人を侮辱する',
+      name: 'よく人を侮辱することがある',
       src: 'https://kaeten-joy.info/wp-content/uploads/freespace41.jpg'
     },
     {
