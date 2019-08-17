@@ -22,8 +22,10 @@
         >
           <v-img class="avatar" :src="content.src">
             <v-card-title class="title align-end fill-height">{{ content.name }}
-              <v-spacer></v-spacer>
-              <div class="age">{{ content.age }}</div>
+              <div v-if="content.age">
+                <v-spacer></v-spacer>
+                <div class="age">{{ content.age }}</div>
+              </div>
             </v-card-title>
           </v-img>
         </v-card>
