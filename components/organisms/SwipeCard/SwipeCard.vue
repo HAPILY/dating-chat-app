@@ -20,7 +20,12 @@
           class="card-wrapper"
           :style="isCur(index) ? mainCardStyle() : bentchCardStyle(index)"
         >
-          <v-img class="avatar" :src="content.src"/>
+          <v-img class="avatar" :src="content.src">
+            <v-card-title class="title align-end fill-height">{{ content.name }}
+              <v-spacer></v-spacer>
+              <div class="age">{{ content.age }}</div>
+            </v-card-title>
+          </v-img>
         </v-card>
       </div>
     </transition-group>
@@ -232,6 +237,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   top: 50px;
+  left: 10px;
   width: 95%;
   position: absolute;
   display: block;
@@ -253,5 +259,12 @@ export default {
   background: color(black, dark);
   width: 340px;
   height: 340px;
+}
+.title {
+  font-size: 36px !important;
+  padding: 5px;
+}
+.age {
+  font-size: 24px;
 }
 </style>
