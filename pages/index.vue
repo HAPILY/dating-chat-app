@@ -1,5 +1,5 @@
 <template>
-  <div class="top-face">
+  <div class="top-face-page">
     <swipe-card :contents="people" />
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.top-face {
+.top-face-page {
   min-height: 500px;
 }
 </style>
