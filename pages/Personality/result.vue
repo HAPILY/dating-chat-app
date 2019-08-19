@@ -11,6 +11,10 @@ export default {
       chartDataValues: [4, 2, 4, 4, 4],
       chartLabels: ['外交性', '神経質傾向', '誠実性', '調和性', '開放性'],
       chartOptions: {
+        title: {
+          display: true,
+          text: '診断結果'
+        },
         scale: {
           ticks: {
             display: false
@@ -29,6 +33,7 @@ export default {
       return {
         datasets: [
           {
+            label: '診断結果',
             data: this.chartDataValues
           }
         ],
