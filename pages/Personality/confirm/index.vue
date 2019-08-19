@@ -10,7 +10,7 @@
       </v-list-item-avatar>
 
       <v-list-item-content>
-        <v-list-item-title v-text="question.name" />
+        Q{{ question.id }}<v-list-item-title v-text="question.name" />
       </v-list-item-content>
 
       <v-list-item-action class="setting-icon">
