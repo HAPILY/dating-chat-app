@@ -13,7 +13,8 @@ export default {
       chartOptions: {
         title: {
           display: true,
-          text: '診断結果'
+          text: '診断結果',
+          fontSize: 24
         },
         scale: {
           ticks: {
