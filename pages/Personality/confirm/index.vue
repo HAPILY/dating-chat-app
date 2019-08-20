@@ -12,6 +12,11 @@
       <v-list-item-content>
         Q{{ question.id }}<v-list-item-title v-text="question.name" />
       </v-list-item-content>
+      <v-chip class="justify-end">
+        <div class="answer_content">
+          はい
+        </div>
+      </v-chip>
 
       <v-list-item-action class="setting-icon">
         <v-btn icon>
@@ -46,5 +51,8 @@ export default {
     margin-left: 10px;
     margin-bottom: 0px;
   }
+}
+.answer_content {
+  margin: 0 10px;
 }
 </style>
