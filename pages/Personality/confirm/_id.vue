@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SwipeCard from '../../../components/organisms/SwipeCard/SwipeCard'
+import SwipeCard from '@/components/organisms/SwipeCard/SwipeCard'
 
 export default {
   components: {
