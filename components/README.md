@@ -1,7 +1,13 @@
 # COMPONENTS
 
-**This directory is not required, you can delete it if you don't want to use it.**
+## file構成
+components -- global
+           ├ Header.vue
+           ├ Footer.vue
 
-The components directory contains your Vue.js Components.
+           -- molecules
+           ├ BackgroundImage
+           ├ FaceImage
 
-_Nuxt.js doesn't supercharge these components._
+           -- organisms
+           ├ SwipeCard

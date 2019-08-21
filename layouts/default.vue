@@ -32,6 +32,7 @@ export default {
   margin: auto;
 }
 .v-content {
+  z-index: 1;
   transition: none;
 }
 </style>

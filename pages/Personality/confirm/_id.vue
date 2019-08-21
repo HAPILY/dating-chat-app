@@ -1,14 +1,13 @@
 <template>
   <div class="personality-select-page">
     <div class="swipe-cards" @click="changePage()">
-      <swipe-card :contents="questions" />
+      <swipe-card :contents="question" />
     </div>
   </div>
 </template>
 
 <script>
 import SwipeCard from '@/components/organisms/SwipeCard/SwipeCard'
-import CONST from '@/const'
 
 export default {
   components: {
@@ -16,12 +15,18 @@ export default {
   },
   data () {
     return {
-      questions: CONST.Personality.questions
+      question: [
+        {
+          id: 1,
+          name: '知らない人とすぐ話ができる',
+          src: 'https://kaeten-joy.info/wp-content/uploads/freespace41.jpg'
+        }
+      ]
     }
   },
   methods: {
     changePage () {
-      if (!this.questions[0]) {
+      if (!this.question[0]) {
         location.href = '/Personality/confirm'
       }
     }
