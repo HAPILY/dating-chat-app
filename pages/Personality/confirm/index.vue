@@ -26,6 +26,9 @@
         </v-btn>
       </v-list-item-action>
     </v-list-item>
+    <nuxt-link to="/Personality/result">
+      <v-btn block color="blue-grey" dark>結果をみる</v-btn>
+    </nuxt-link>
   </div>
 </template>
 

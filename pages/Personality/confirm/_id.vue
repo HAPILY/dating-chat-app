@@ -1,6 +1,8 @@
 <template>
   <div class="personality-select-page">
-    <swipe-card :contents="question" />
+    <div class="swipe-cards" @click="changePage()">
+      <swipe-card :contents="question" />
+    </div>
   </div>
 </template>
 
@@ -21,6 +23,13 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    changePage () {
+      if (!this.question[0]) {
+        location.href = '/Personality/confirm'
+      }
+    }
   }
 }
 </script>
@@ -28,5 +37,12 @@ export default {
 <style lang="scss" scoped>
 .personality-select-page {
   min-height: 450px;
+}
+.swipe-cards {
+  top: 50px;
+  left: 10px;
+  width: 95%;
+  position: absolute;
+  display: block;
 }
 </style>
