@@ -31,6 +31,10 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {
+      src: '@/plugins/vue-chartjs',
+      ssr: false
+    },
     '~/plugins/socket.io.js'
   ],
   /*
