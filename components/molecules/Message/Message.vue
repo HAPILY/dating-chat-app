@@ -20,7 +20,8 @@
         </div>
       </div>
       <span class="message-time">
-        {{ new Date(Date.parse(message.date)).getFullYear() }}/{{ new Date(Date.parse(message.date)).getMonth() + 1 }}/{{ new Date(Date.parse(message.date)).getDate() }} {{ new Date(Date.parse(message.date)).getHours() }}:{{ new Date(Date.parse(message.date)).getMinutes() }}
+        {{ new Date(Date.parse(message.date)).getFullYear() }}/{{ ('0' + (new Date(Date.parse(message.date)).getMonth() + 1)).slice(-2) }}/{{ ('0' + new Date(Date.parse(message.date)).getDate()).slice(-2) }}
+        {{ ('0' + new Date(Date.parse(message.date)).getHours()).slice(-2) }}:{{ ('0' + new Date(Date.parse(message.date)).getMinutes()).slice(-2) }}
       </span>
     </div>
   </div>

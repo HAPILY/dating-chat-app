@@ -66,11 +66,11 @@ export default {
   height: 90vh;
 }
 .typer{
+  overflow: scroll;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   bottom: 0;
-  height: 4.9rem;
   width: 100%;
   padding-left: 15px;
   background-color: #424242;
