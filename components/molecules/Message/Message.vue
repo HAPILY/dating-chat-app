@@ -1,7 +1,6 @@
 <template>
-  <div class="chat-container">
+  <div class="message">
     <div
-      class="message"
       v-for="(message,index) in messages"
       :key="index"
       :class="{own: message.userName === userName}"
@@ -32,7 +31,8 @@ export default {
   name: 'Message',
   props: {
     messages: {
-      type: Array
+      type: Array,
+      required: true
     }
   },
   computed: {
@@ -44,35 +44,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.chat-container {
+.message {
   box-sizing: border-box;
   height: calc(100vh - 9.5rem);
   overflow-y: auto;
   padding: 10px;
   background-color: #424242;
 
-  .message {
-    margin-bottom: 3px;
-    &.own {
-      text-align: right;
-      .content {
-        background-color: color(blue, light);
-      }
+  &.own {
+    text-align: right;
+    .content {
+      background-color: color(blue, light);
     }
-    &-icon {
-      &-wrap {
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
-        border-radius: 50% !important;
-        margin-right: 14px !important;
-      }
+  }
+  &-icon {
+    &-wrap {
+      width: 40px !important;
+      height: 40px !important;
+      min-width: 40px !important;
+      border-radius: 50% !important;
+      margin-right: 14px !important;
     }
-    &-time {
-      font-size: 10px;
-      color: color(gray, light);
-      margin-left: 55px;
-    }
+  }
+  &-time {
+    font-size: 10px;
+    color: color(gray, light);
+    margin-left: 55px;
   }
 
   .content {
