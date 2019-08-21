@@ -1,7 +1,7 @@
 <template>
   <div class="message my-4">
     <div v-for="item in items" :key="item.id">
-      <nuxt-link :to="`/Message/${item.id}`">
+      <nuxt-link :to="`/message/${item.id}/info`">
         <v-card class="message-list my-2 mx-auto d-flex">
           <v-list-item-avatar class="message-icon-wrap" min-width="80px">
             <v-img

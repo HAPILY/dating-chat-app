@@ -34,7 +34,8 @@ export default {
     {
       src: '@/plugins/vue-chartjs',
       ssr: false
-    }
+    },
+    '~/plugins/socket.io.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -84,6 +85,7 @@ export default {
   ** Build configuration
   */
   build: {
+    vendor: ['socket.io-client'],
     loaders: {
       scss: {
         data: `@import '~assets/scss/index.scss';`
