@@ -1,14 +1,16 @@
 <template>
   <v-card class="column mt-7 mx-auto">
     <v-img class="column-image" :src="column.src">
-      <v-card-title class="column-title align-end fill-height">{{ column.title }}</v-card-title>
+      <v-card-title class="column-title align-end fill-height">
+        {{ column.title }}
+      </v-card-title>
     </v-img>
-    <v-card-text class="content" v-html="column.content"></v-card-text>
+    <v-card-text class="content" v-html="column.content" />
     <v-card-actions>
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-btn icon>
         <v-icon>mdi-facebook-box</v-icon>
       </v-btn>

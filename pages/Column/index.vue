@@ -6,7 +6,7 @@
       class="setting-list"
     >
       <v-list-item-avatar class="setting-icon">
-        <v-img :src="item.src"/>
+        <v-img :src="item.src" />
       </v-list-item-avatar>
 
       <v-list-item-content>

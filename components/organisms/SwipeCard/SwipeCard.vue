@@ -21,10 +21,13 @@
           :style="isCur(index) ? mainCardStyle() : bentchCardStyle(index)"
         >
           <v-img class="avatar" :src="content.src">
-            <v-card-title class="title align-end fill-height">{{ content.name }}
-              <v-spacer></v-spacer>
+            <v-card-title class="title align-end fill-height">
+              {{ content.name }}
+              <v-spacer />
               <div v-if="content.age">
-                <div class="age">{{ content.age }}</div>
+                <div class="age">
+                  {{ content.age }}
+                </div>
               </div>
             </v-card-title>
           </v-img>
@@ -46,7 +49,12 @@ let resizeTimer
 
 export default {
   name: 'SwipeCard',
-  props: ['contents'],
+  props: {
+    contents: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
       cardStatus: 'normal',
