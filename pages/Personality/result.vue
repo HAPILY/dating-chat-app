@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <radar-chart :chart-data="chartData" :options="chartOptions"/>
+    <radar-chart :chart-data="chartData" :options="chartOptions" />
   </v-container>
 </template>
 

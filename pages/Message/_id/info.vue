@@ -17,9 +17,6 @@ export default {
   name: 'MessageInfo',
   components: {
     Chat
-  },
-  asyncData ({ params }) {
-    console.log(params)
   }
 }
 </script>

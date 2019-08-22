@@ -6,7 +6,7 @@
       class="setting-list"
     >
       <v-list-item-avatar class="setting-icon">
-        <v-img :src="question.src"/>
+        <v-img :src="question.src" />
       </v-list-item-avatar>
 
       <v-list-item-content>
@@ -27,7 +27,9 @@
       </v-list-item-action>
     </v-list-item>
     <nuxt-link to="/Personality/result">
-      <v-btn block color="blue-grey" dark>結果をみる</v-btn>
+      <v-btn block color="blue-grey" dark>
+        結果をみる
+      </v-btn>
     </nuxt-link>
   </div>
 </template>
