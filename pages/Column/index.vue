@@ -1,26 +1,28 @@
 <template>
   <div>
-    <v-list-item
+    <div
       v-for="item in list"
       :key="item.title"
       class="setting-list"
     >
-      <v-list-item-avatar class="setting-icon">
-        <v-img :src="item.src" />
-      </v-list-item-avatar>
+      <nuxt-link class="d-flex" :to="`/Column/${item.id}`">
+        <v-list-item-avatar class="setting-icon">
+          <v-img :src="item.src" />
+        </v-list-item-avatar>
 
-      <v-list-item-content>
-        <v-list-item-title v-text="item.title" />
-      </v-list-item-content>
+        <v-list-item-content>
+          <v-list-item-title v-text="item.title" />
+        </v-list-item-content>
 
-      <v-list-item-action class="setting-icon">
-        <v-btn icon>
-          <v-icon color="grey lighten-1">
-            mdi-chevron-right
-          </v-icon>
-        </v-btn>
-      </v-list-item-action>
-    </v-list-item>
+        <v-list-item-action class="setting-icon">
+          <v-btn icon>
+            <v-icon color="grey lighten-1">
+              mdi-chevron-right
+            </v-icon>
+          </v-btn>
+        </v-list-item-action>
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -37,7 +39,7 @@ export default {
       return this.getList
     }
   },
-  mounted () {
+  created () {
     this.fetch()
   },
   methods: {
