@@ -39,7 +39,6 @@ export default {
       getProfile: 'profile'
     }),
     profile () {
-      console.log(this.getProfile)
       return this.getProfile
     }
   },
