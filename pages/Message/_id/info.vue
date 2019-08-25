@@ -11,12 +11,35 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import Chat from '@/components/molecules/Chat/Chat'
 
 export default {
   name: 'MessageInfo',
   components: {
     Chat
+  },
+  computed: {
+    ...mapGetters('message', {
+      getList: 'list'
+    }),
+    list () {
+      return this.getList
+    },
+    item () {
+      return this.list[this.$route.params.id - 1]
+    }
+  },
+  created () {
+    this.fetch()
+  },
+  methods: {
+    ...mapActions('message', {
+      fetchList: 'fetchList'
+    }),
+    async fetch () {
+      this.list.length === 0 && await this.fetchList()
+    }
   }
 }
 </script>

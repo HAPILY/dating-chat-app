@@ -1,6 +1,6 @@
 <template>
   <div class="message my-4">
-    <div v-for="item in items" :key="item.id">
+    <div v-for="item in list" :key="item.id">
       <nuxt-link :to="`/message/${item.id}/info`">
         <v-card class="message-list my-2 mx-auto d-flex">
           <v-list-item-avatar class="message-icon-wrap" min-width="80px">
@@ -39,45 +39,17 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'MessageList',
-  data () {
-    return {
-      items: [
-        {
-          id: 1,
-          name: 'S.T',
-          age: 20,
-          prefecture: '埼玉',
-          src: 'https://1.bp.blogspot.com/_qEbjiFbQWGM/TCBVlN3mkYI/AAAAAAAADCM/7CjYqUHwbgY/s1600/workshop_modell_0126.jpg',
-          message: 'メッセージを交換していません。',
-          lastMessageTime: '2019-08-17 12:10:30',
-          isReply: true
-        },
-        {
-          id: 2,
-          name: 'Ellen Kat',
-          age: 30,
-          prefecture: '和歌山',
-          src: 'http://static.stylemagazin.hu/medias/29280/Nem-ehezik-a-Women-of-the-Year-legjobb-modell-dijara-eselyes-szepseg_32fc7c86954a8847610499a0fc7261e2.jpg',
-          message: 'こんばんは！マッチングありがとうございます。よろしくお願いします。こんばんは！マッチングありがとうございます。よろしくお願いします。',
-          lastMessageTime: '2019-08-15 22:10:30',
-          isReply: false
-        },
-        {
-          id: 3,
-          name: 'かなえ',
-          age: 25,
-          prefecture: '東京',
-          src: 'http://w1nd.cc/promo/347.jpg',
-          message: `Hello..\n nice to meet you..\n thanks..`,
-          lastMessageTime: '2019-07-17 12:10:30',
-          isReply: true
-        }
-      ]
-    }
-  },
   computed: {
+    ...mapGetters('message', {
+      getList: 'list'
+    }),
+    list () {
+      return this.getList
+    },
     messageTime () {
       return function (time) {
         const date = new Date()
@@ -95,6 +67,17 @@ export default {
           return `${lastMessageDate.getMonth() + 1}/${lastMessageDay}`
         }
       }
+    }
+  },
+  created () {
+    this.fetch()
+  },
+  methods: {
+    ...mapActions('message', {
+      fetchList: 'fetchList'
+    }),
+    async fetch () {
+      await this.fetchList()
     }
   }
 }
