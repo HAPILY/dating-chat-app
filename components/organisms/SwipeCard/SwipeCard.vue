@@ -18,9 +18,12 @@
       >
         <v-card
           class="card-wrapper"
+          id="card"
           :style="isCur(index) ? mainCardStyle() : bentchCardStyle(index)"
         >
           <v-img class="avatar" :src="content.src">
+            <div class="stamp is-approved" id="approved">LIKE</div>
+            <div class="stamp is-nope" id="nope">NOPE</div>
             <v-card-title class="title align-end fill-height">
               {{ content.name }}
               <v-spacer />
@@ -131,6 +134,27 @@ export default {
     },
     move (e) {
       e.preventDefault()
+      // stampを付与
+      const approved = document.getElementById('approved')
+      console.log(this.moveStatus.ratio)
+      const nope = document.getElementById('nope')
+      const card = document.getElementById('card')
+      console.log(nope)
+      if (this.moveStatus.ratio > 0.27) {
+        approved.style.opacity = 1
+        // green
+        card.style.backgroundColor = '#0A9928'
+      } else if (this.moveStatus.ratio < -0.27) {
+        nope.style.opacity = 1
+        // red
+        card.style.backgroundColor = '#D23'
+      } else {
+        approved.style.opacity = 0
+        nope.style.opacity = 0
+        // white
+        card.style.backgroundColor = '#FFFFFF'
+      }
+
       if (
         this.moveStatus.touchId === null ||
         this.cardStatus === 'leave' ||
@@ -269,6 +293,28 @@ export default {
   background: color(black, dark);
   width: 340px;
   height: 340px;
+}
+.stamp {
+  position: absolute;
+  -webkit-mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png);
+}
+.is-approved {
+  opacity: 0;
+  color: color(green, base);
+  border: 0.5rem double color(green, base);
+  transform: rotate(-30deg);
+  font-size: 2rem;
+  left: 10px;
+  top: 35px;
+}
+.is-nope {
+  opacity: 0;
+  color: color(red, base);
+  border: 0.5rem double color(red, base);
+  transform: rotate(30deg);
+  font-size: 2rem;
+  right: 10px;
+  top: 35px;
 }
 .title {
   font-size: 36px !important;
