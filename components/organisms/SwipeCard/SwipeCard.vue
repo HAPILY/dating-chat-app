@@ -136,10 +136,8 @@ export default {
       e.preventDefault()
       // stampを付与
       const approved = document.getElementById('approved')
-      console.log(this.moveStatus.ratio)
       const nope = document.getElementById('nope')
       const card = document.getElementById('card')
-      console.log(nope)
       if (this.moveStatus.ratio > 0.27) {
         approved.style.opacity = 1
         // green
