@@ -12,7 +12,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Chat from '@/components/molecules/Chat/Chat'
+import Chat from '@/components/organisms/Chat/Chat'
 
 export default {
   name: 'MessageInfo',
