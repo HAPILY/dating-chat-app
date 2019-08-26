@@ -5,11 +5,11 @@
       <FaceImage :profile="profile" />
     </div>
     <div class="profile">
-      <BasicProfile :profile="profile" />
+      <BasicProfileEdit :profile="profile" />
       <div class="header-label">
         詳細プロフィール
       </div>
-      <DetailProfile :profile="profile" />
+      <DetailProfileEdit :profile="profile" />
     </div>
     <div class="btn-wrap">
       <v-btn
@@ -28,16 +28,16 @@
 import { mapActions, mapGetters } from 'vuex'
 import BackgroundImage from '@/components/molecules/BackgroundImage/BackgroundImage'
 import FaceImage from '@/components/molecules/FaceImage/FaceImage'
-import BasicProfile from '@/components/organisms/BasicProfile/BasicProfile'
-import DetailProfile from '@/components/organisms/DetailProfile/DetailProfile'
+import BasicProfileEdit from '@/components/organisms/BasicProfileEdit/BasicProfileEdit'
+import DetailProfileEdit from '@/components/organisms/DetailProfileEdit/DetailProfileEdit'
 
 export default {
   name: 'Profile',
   components: {
     BackgroundImage,
     FaceImage,
-    BasicProfile,
-    DetailProfile
+    BasicProfileEdit,
+    DetailProfileEdit
   },
   computed: {
     ...mapGetters('mypage', {
@@ -45,12 +45,6 @@ export default {
     }),
     profile () {
       return this.getProfile
-    },
-    background () {
-      return 'https://placehold.jp/650x650.png'
-    },
-    face () {
-      return 'http://placehold.jp/24/cc9999/993333/650x650.png'
     }
   },
   created () {

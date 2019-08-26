@@ -18,7 +18,7 @@ import { mapActions } from 'vuex'
 import CONST from '@/const'
 
 export default {
-  name: 'DetailProfile',
+  name: 'DetailProfileEdit',
   props: {
     profile: {
       type: Object,

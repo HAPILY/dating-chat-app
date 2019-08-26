@@ -17,7 +17,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'BasicProfile',
+  name: 'BasicProfileEdit',
   props: {
     profile: {
       type: Object,
