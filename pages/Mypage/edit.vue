@@ -5,40 +5,18 @@
       <FaceImage :profile="profile" />
     </div>
     <div class="profile">
-      <v-text-field
-        v-model="name"
-        class="input-name"
-        label="名前"
-      />
-      <v-textarea
-        v-model="detail"
-        class="input-detail"
-        label="自己紹介"
-        rows="10"
-        auto-grow
-      />
+      <BasicProfileEdit :profile="profile" />
       <div class="header-label">
         詳細プロフィール
       </div>
-      <v-text-field
-        v-model="age"
-        class="input-age"
-        label="年齢"
-        type="number"
-      />
-      <v-select
-        v-model="prefecture"
-        :items="prefectureList"
-        class="input-prefecture"
-        label="都道府県"
-      ></v-select>
+      <DetailProfileEdit :profile="profile" />
     </div>
     <div class="btn-wrap">
       <v-btn
         class="send-btn"
         color="primary"
-        @click="onSubmit"
         dark
+        @click="onSubmit"
       >
         更新
       </v-btn>
@@ -48,20 +26,18 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import CONST from '@/const'
 import BackgroundImage from '@/components/molecules/BackgroundImage/BackgroundImage'
 import FaceImage from '@/components/molecules/FaceImage/FaceImage'
+import BasicProfileEdit from '@/components/organisms/BasicProfileEdit/BasicProfileEdit'
+import DetailProfileEdit from '@/components/organisms/DetailProfileEdit/DetailProfileEdit'
 
 export default {
   name: 'Profile',
   components: {
     BackgroundImage,
-    FaceImage
-  },
-  data () {
-    return {
-      prefectureList: CONST.Prefecture
-    }
+    FaceImage,
+    BasicProfileEdit,
+    DetailProfileEdit
   },
   computed: {
     ...mapGetters('mypage', {
@@ -69,52 +45,6 @@ export default {
     }),
     profile () {
       return this.getProfile
-    },
-    name: {
-      get () {
-        return this.profile.name
-      },
-      set (newVal) {
-        if (this.name !== newVal) {
-          this.updateProfileState({ type: 'name', value: newVal })
-        }
-      }
-    },
-    detail: {
-      get () {
-        return this.profile.detail
-      },
-      set (newVal) {
-        if (this.detail !== newVal) {
-          this.updateProfileState({ type: 'detail', value: newVal })
-        }
-      }
-    },
-    age: {
-      get () {
-        return this.profile.age
-      },
-      set (newVal) {
-        if (this.age !== newVal) {
-          this.updateProfileState({ type: 'age', value: newVal })
-        }
-      }
-    },
-    prefecture: {
-      get () {
-        return this.profile.prefecture
-      },
-      set (newVal) {
-        if (this.prefecture !== newVal) {
-          this.updateProfileState({ type: 'prefecture', value: newVal })
-        }
-      }
-    },
-    background () {
-      return 'https://placehold.jp/650x650.png'
-    },
-    face () {
-      return 'http://placehold.jp/24/cc9999/993333/650x650.png'
     }
   },
   created () {
@@ -131,12 +61,13 @@ export default {
     },
     async onSubmit () {
       const newProfile = {
-        name: this.name,
-        age: this.age,
-        prefecture: this.prefecture,
-        detail: this.detail,
-        background: this.background,
-        face: this.face
+        name: this.profile.name,
+        age: this.profile.age,
+        gender: this.profile.gender,
+        prefecture: this.profile.prefecture,
+        detail: this.profile.detail,
+        background: this.profile.background,
+        face: this.profile.face
       }
       await this.updateProfile(newProfile)
     }

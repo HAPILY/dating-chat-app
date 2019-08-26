@@ -5,7 +5,7 @@
       <FaceImage :profile="profile" :is-edit="false" />
     </div>
     <div class="profile">
-      <div class="name">
+      <div class="basic">
         {{ profile.name }}
         <span>
           {{ profile.age }}歳 / {{ profile.prefecture }}
@@ -64,16 +64,18 @@ export default {
     height: 350px;
   }
 
-  .name {
+  .basic {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 20px;
     > span {
       font-size: 18px;
       font-weight: 100;
     }
   }
   .detail {
+    padding: 0 12px;
     line-height: 1.4;
     > p {
       white-space: pre-wrap;
