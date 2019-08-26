@@ -63,6 +63,7 @@ export default {
       const newProfile = {
         name: this.profile.name,
         age: this.profile.age,
+        gender: this.profile.gender,
         prefecture: this.profile.prefecture,
         detail: this.profile.detail,
         background: this.profile.background,

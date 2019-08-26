@@ -10,6 +10,23 @@
       rows="10"
       auto-grow
     />
+    <v-radio-group v-model="gender" row>
+      <v-radio
+        key="man"
+        label="男性"
+        value="man"
+      />
+      <v-radio
+        key="woman"
+        label="女性"
+        value="woman"
+      />
+      <v-radio
+        key="other"
+        label="その他"
+        value="other"
+      />
+    </v-radio-group>
   </div>
 </template>
 
@@ -42,6 +59,16 @@ export default {
       set (newVal) {
         if (this.detail !== newVal) {
           this.updateProfileState({ type: 'detail', value: newVal })
+        }
+      }
+    },
+    gender: {
+      get () {
+        return this.profile.gender
+      },
+      set (newVal) {
+        if (this.gender !== newVal) {
+          this.updateProfileState({ type: 'gender', value: newVal })
         }
       }
     }
