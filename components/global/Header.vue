@@ -10,7 +10,16 @@
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-badge
+              color="primary"
+              overlap
+              class="align-self-center"
+            >
+              <template v-slot:badge>
+                <span>!</span>
+              </template>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-badge>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -27,7 +36,18 @@
           class="header-icon"
         >
           <nuxt-link :to="item.to">
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-badge
+              v-if="item.icon === 'mdi-gnome' && visit"
+              color="primary"
+              overlap
+              class="align-self-center"
+            >
+              <template v-slot:badge>
+                <span>!</span>
+              </template>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-badge>
+            <v-icon v-else>{{ item.icon }}</v-icon>
             <div class="header-name">
               {{ item.title }}
             </div>
@@ -64,6 +84,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import CONST from '@/const'
 
 export default {
@@ -74,6 +95,18 @@ export default {
       items: CONST.Header.items,
       settingItems: CONST.Setting.items,
       title: 'Vuetify.js'
+    }
+  },
+  computed: {
+    ...mapGetters('visit', {
+      getList: 'list'
+    }),
+    visit () {
+      // TODO middlewareでfetchListしないとgetできないので作る
+      const list = this.getList
+      return list.some((v) => {
+        return v.isChecked
+      })
     }
   }
 }
