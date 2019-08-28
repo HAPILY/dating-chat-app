@@ -11,6 +11,7 @@
         >
           <v-list-item-action>
             <v-badge
+              v-if="item.icon === 'mdi-gnome' && visit"
               color="primary"
               overlap
               class="align-self-center"
@@ -20,6 +21,7 @@
               </template>
               <v-icon>{{ item.icon }}</v-icon>
             </v-badge>
+            <v-icon v-else>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
