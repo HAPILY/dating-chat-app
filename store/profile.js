@@ -1,6 +1,7 @@
 // example data
 const data = {
   profile: {
+    id: 1,
     name: '田中 太郎',
     age: 25,
     gender: 'man',
@@ -29,14 +30,21 @@ export const getters = {
 }
 
 export const actions = {
-  fetchProfile (context) {
+  fetchMyProfile (context) {
     const res = data
     context.commit('setProfile', res)
+  },
+  fetchProfile (context) {
+    const res = data.profile
+    return res
   },
   updateProfileState (context, payload) {
     context.commit('setProfileState', payload)
   },
   updateProfile (context, payload) {
+    console.log(payload)
+  },
+  sendVisitLog (context, payload) {
     console.log(payload)
   }
 }

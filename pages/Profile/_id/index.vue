@@ -10,11 +10,6 @@
         <span>
           {{ profile.age }}歳 / {{ profile.prefecture }}
         </span>
-        <nuxt-link to="/Profile/edit">
-          <v-btn outlined x-small icon>
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-        </nuxt-link>
       </div>
       <div class="detail">
         <p>{{ profile.detail }}</p>
@@ -34,23 +29,36 @@ export default {
     BackgroundImage,
     FaceImage
   },
-  computed: {
-    ...mapGetters('profile', {
-      getProfile: 'profile'
-    }),
-    profile () {
-      return this.getProfile
+  data () {
+    return {
+      profile: {}
     }
   },
-  created () {
-    this.fetch()
+  computed: {
+    ...mapGetters({
+      getSettings: 'settings'
+    }),
+    settings () {
+      return this.getSettings
+    }
+  },
+  async created () {
+    await this.fetch()
+    if (this.settings.visit) {
+      await this.sendVisited()
+    }
   },
   methods: {
     ...mapActions('profile', {
-      fetchMyProfile: 'fetchMyProfile'
+      fetchProfile: 'fetchProfile',
+      sendVisitLog: 'sendVisitLog'
     }),
     async fetch () {
-      await this.fetchMyProfile()
+      const res = await this.fetchProfile(this.$route.params.id)
+      this.profile = res
+    },
+    async sendVisited () {
+      await this.sendVisitLog({ from: this.profile.id, to: this.$route.params.id })
     }
   }
 }
