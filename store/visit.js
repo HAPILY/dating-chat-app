@@ -51,6 +51,9 @@ export const actions = {
     context.commit('setList', res)
   },
   updateChecked (context, list) {
-    console.log(list)
+    const updateList = list.find((v) => {
+      return !v.isChecked
+    })
+    console.log(updateList)
   }
 }
