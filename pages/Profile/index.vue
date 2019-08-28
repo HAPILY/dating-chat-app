@@ -1,5 +1,5 @@
 <template>
-  <div class="mypage-container">
+  <div class="profile-container">
     <div class="image-wrap">
       <BackgroundImage :profile="profile" :is-edit="false" />
       <FaceImage :profile="profile" :is-edit="false" />
@@ -10,7 +10,7 @@
         <span>
           {{ profile.age }}歳 / {{ profile.prefecture }}
         </span>
-        <nuxt-link to="/Mypage/edit">
+        <nuxt-link to="/Profile/edit">
           <v-btn outlined x-small icon>
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
@@ -29,13 +29,13 @@ import BackgroundImage from '@/components/molecules/BackgroundImage/BackgroundIm
 import FaceImage from '@/components/molecules/FaceImage/FaceImage'
 
 export default {
-  name: 'Mypage',
+  name: 'Profile',
   components: {
     BackgroundImage,
     FaceImage
   },
   computed: {
-    ...mapGetters('mypage', {
+    ...mapGetters('profile', {
       getProfile: 'profile'
     }),
     profile () {
@@ -46,7 +46,7 @@ export default {
     this.fetch()
   },
   methods: {
-    ...mapActions('mypage', {
+    ...mapActions('profile', {
       fetchProfile: 'fetchProfile'
     }),
     async fetch () {
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mypage-container {
+.profile-container {
   position: relative;
 
   .image-wrap {

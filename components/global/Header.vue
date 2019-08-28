@@ -36,7 +36,7 @@
       </div>
       <v-toolbar-title v-text="title" />
       <div class="setting-icon">
-        <nuxt-link class="setting-link" to="/Mypage/setting">
+        <nuxt-link class="setting-link" to="/Profile/setting">
           <v-btn class="setting-btn-sp" icon>
             <v-icon>mdi-settings</v-icon>
           </v-btn>

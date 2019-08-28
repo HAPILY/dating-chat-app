@@ -18,7 +18,7 @@ export default {
     {
       icon: 'mdi-account',
       title: 'マイページ',
-      to: '/Mypage'
+      to: '/Profile'
     }
   ]
 }

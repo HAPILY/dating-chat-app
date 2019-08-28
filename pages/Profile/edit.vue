@@ -1,5 +1,5 @@
 <template>
-  <div class="mypage-container">
+  <div class="profile-container">
     <div class="image-wrap">
       <BackgroundImage :profile="profile" />
       <FaceImage :profile="profile" />
@@ -40,7 +40,7 @@ export default {
     DetailProfileEdit
   },
   computed: {
-    ...mapGetters('mypage', {
+    ...mapGetters('profile', {
       getProfile: 'profile'
     }),
     profile () {
@@ -51,7 +51,7 @@ export default {
     this.fetch()
   },
   methods: {
-    ...mapActions('mypage', {
+    ...mapActions('profile', {
       updateProfileState: 'updateProfileState',
       fetchProfile: 'fetchProfile',
       updateProfile: 'updateProfile'
@@ -98,7 +98,7 @@ export default {
   }
 }
 
-.mypage-container {
+.profile-container {
   position: relative;
 
   .image-wrap {

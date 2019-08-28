@@ -53,7 +53,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('mypage', {
+    ...mapActions('profile', {
       updateProfileState: 'updateProfileState'
     })
   }
