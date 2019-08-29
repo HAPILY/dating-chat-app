@@ -1,5 +1,13 @@
 # dating-chat-app
 
+## preparation
+
+- Nodebrew
+- Node.js above v11.0.0
+
+References
+https://qiita.com/sinmetal/items/154e81823f386279b33c
+
 ## environment
 
 - Vuetify.js
