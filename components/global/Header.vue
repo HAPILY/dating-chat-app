@@ -26,7 +26,10 @@
           :key="i"
           class="header-icon"
         >
-          <nuxt-link :to="item.to">
+          <search-dialog
+            v-if="i === 0"
+          ></search-dialog>
+          <nuxt-link :to="item.to" v-else>
             <v-icon>{{ item.icon }}</v-icon>
             <div class="header-name">
               {{ item.title }}
@@ -64,6 +67,7 @@
 </template>
 
 <script>
+import SearchDialog from '../organisms/SearchDialog/SearchDialog'
 import CONST from '@/const'
 
 export default {
@@ -75,6 +79,9 @@ export default {
       settingItems: CONST.Setting.items,
       title: 'Vuetify.js'
     }
+  },
+  components: {
+    SearchDialog
   }
 }
 </script>
