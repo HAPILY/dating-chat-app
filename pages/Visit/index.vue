@@ -26,6 +26,7 @@
             class="visit-label"
             color="red"
             label
+            large
           >
             New
           </v-chip>
@@ -88,28 +89,33 @@ export default {
 .visit {
   &-list {
     padding: 25px;
+    position: relative;
+    overflow: hidden;
   }
-
   &-icon {
     &-wrap {
       width: 80px !important;
       height: 80px !important;
       border-radius: 50% !important;
+      margin-left: 15px;
     }
   }
-
   &-info {
     position: relative;
     width: 80%;
     margin: 0 20px;
     padding: 0 0 20px;
   }
-
   &-label {
-    padding: 0px 10px;
+    height: 40px;
+    position: absolute;
+    top: -5px;
+    left: -25px;
+    transform: rotate(-45deg);
+    padding: 0px 25px;
     font-size: 12px;
+    font-weight: bold;
   }
-
   &-title {
     font-size: 24px;
     font-weight: bold;
