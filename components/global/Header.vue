@@ -104,7 +104,6 @@ export default {
       getList: 'list'
     }),
     visit () {
-      // TODO middlewareでfetchListしないとgetできないので作る
       const list = this.getList
       return list.some((v) => {
         return v.isChecked

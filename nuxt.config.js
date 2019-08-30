@@ -2,6 +2,11 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'spa',
+  router: {
+    middleware: [
+      'set-auth'
+    ]
+  },
   /*
   ** Headers of the page
   */
