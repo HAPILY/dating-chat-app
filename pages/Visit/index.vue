@@ -2,39 +2,7 @@
   <div class="visit my-4">
     <div v-for="item in list" :key="item.id">
       <nuxt-link :to="`/Profile/${item.id}`">
-        <v-card class="visit-list my-2 mx-auto d-flex">
-          <v-list-item-avatar class="visit-icon-wrap" min-width="80px">
-            <v-img
-              class="visit-icon"
-              width="80px"
-              height="80px"
-              :src="item.src"
-            />
-          </v-list-item-avatar>
-
-          <div class="visit-info">
-            <v-card-title class="visit-title">
-              {{ item.name }} {{ item.age }}歳 {{ item.prefecture }}
-            </v-card-title>
-
-            <v-card-text class="visit-detail">
-              {{ item.detail }}
-            </v-card-text>
-
-            <v-card-text class="visit-time">
-              {{ visitTime(item.visitTime) }}
-            </v-card-text>
-          </div>
-          <v-chip
-            v-if="!item.isChecked"
-            class="visit-label"
-            color="red"
-            label
-            large
-          >
-            New
-          </v-chip>
-        </v-card>
+        <CardListInfo :item="item" />
       </nuxt-link>
     </div>
   </div>
@@ -42,33 +10,19 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import CardListInfo from '@/components/molecules/CardListInfo/CardListInfo'
 
 export default {
   name: 'Visit',
+  components: {
+    CardListInfo
+  },
   computed: {
     ...mapGetters('visit', {
       getList: 'list'
     }),
     list () {
       return this.getList
-    },
-    visitTime () {
-      return function (time) {
-        const date = new Date()
-        const year = date.getFullYear()
-        const month = date.getMonth() + 1
-        const day = date.getDate()
-
-        const lastMessageDate = new Date(time)
-        const lastMessageYear = lastMessageDate.getFullYear()
-        const lastMessageMonth = lastMessageDate.getMonth() + 1
-        const lastMessageDay = lastMessageDate.getDate()
-        if (`${year} ${month} ${day}` === `${lastMessageYear} ${lastMessageMonth} ${lastMessageDay}`) {
-          return `${lastMessageDate.getHours()}:${lastMessageDate.getMinutes()}`
-        } else {
-          return `${lastMessageDate.getMonth() + 1}/${lastMessageDay}`
-        }
-      }
     }
   },
   created () {
@@ -88,66 +42,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.visit {
-  &-list {
-    padding: 25px;
-    position: relative;
-    overflow: hidden;
-  }
-  &-icon {
-    &-wrap {
-      width: 80px !important;
-      height: 80px !important;
-      border-radius: 50% !important;
-      margin-left: 15px;
-    }
-  }
-  &-info {
-    position: relative;
-    width: 80%;
-    margin: 0 20px;
-    padding: 0 0 20px;
-  }
-  &-label {
-    height: 40px;
-    position: absolute;
-    top: -5px;
-    left: -25px;
-    transform: rotate(-45deg);
-    padding: 0px 25px;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  &-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  &-detail {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  &-time {
-    position: absolute;
-    bottom: 0;
-    font-size: 12px;
-  }
-}
-@include media (sm) {
-  .visit {
-    &-list {
-      padding: 15px;
-    }
-    &-title {
-      font-size: 16px;
-    }
-    &-info {
-      margin: 0;
-      padding: 0 20px 20px 0;
-    }
-  }
-}
-</style>
