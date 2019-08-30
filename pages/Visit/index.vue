@@ -1,7 +1,7 @@
 <template>
   <div class="visit my-4">
     <div v-for="item in list" :key="item.id">
-      <nuxt-link :to="`/${item.id}`">
+      <nuxt-link :to="`/Profile/${item.id}`">
         <v-card class="visit-list my-2 mx-auto d-flex">
           <v-list-item-avatar class="visit-icon-wrap" min-width="80px">
             <v-img
@@ -16,6 +16,10 @@
             <v-card-title class="visit-title">
               {{ item.name }} {{ item.age }}歳 {{ item.prefecture }}
             </v-card-title>
+
+            <v-card-text class="visit-detail">
+              {{ item.detail }}
+            </v-card-text>
 
             <v-card-text class="visit-time">
               {{ visitTime(item.visitTime) }}
@@ -120,6 +124,11 @@ export default {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+  }
+  &-detail {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &-time {
     position: absolute;

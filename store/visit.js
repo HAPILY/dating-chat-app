@@ -7,6 +7,7 @@ const data = {
       age: 20,
       prefecture: '埼玉',
       src: 'https://1.bp.blogspot.com/_qEbjiFbQWGM/TCBVlN3mkYI/AAAAAAAADCM/7CjYqUHwbgY/s1600/workshop_modell_0126.jpg',
+      detail: `初めましてー！\nプロフ読んでくれてありがとうございます♪\nお互いに思いやりを忘れず、くだらない事でも笑い合えて、いつまでも一人の男性として好きでいられる方と出会えることが出来ればと思っています( *´艸｀)\nちょっと天然でのんびり屋さんなとこありますけど、どうぞ宜しくお願いします(笑)`,
       visitTime: '2019-08-17 12:10:30',
       isChecked: false
     },
@@ -16,6 +17,7 @@ const data = {
       age: 30,
       prefecture: '和歌山',
       src: 'http://static.stylemagazin.hu/medias/29280/Nem-ehezik-a-Women-of-the-Year-legjobb-modell-dijara-eselyes-szepseg_32fc7c86954a8847610499a0fc7261e2.jpg',
+      detail: `初めましてー！\nプロフ読んでくれてありがとうございます♪\nお互いに思いやりを忘れず、くだらない事でも笑い合えて、いつまでも一人の男性として好きでいられる方と出会えることが出来ればと思っています( *´艸｀)\nちょっと天然でのんびり屋さんなとこありますけど、どうぞ宜しくお願いします(笑)`,
       visitTime: '2019-08-15 22:10:30',
       isChecked: true
     },
@@ -25,6 +27,7 @@ const data = {
       age: 25,
       prefecture: '東京',
       src: 'http://w1nd.cc/promo/347.jpg',
+      detail: `初めましてー！\nプロフ読んでくれてありがとうございます♪\nお互いに思いやりを忘れず、くだらない事でも笑い合えて、いつまでも一人の男性として好きでいられる方と出会えることが出来ればと思っています( *´艸｀)\nちょっと天然でのんびり屋さんなとこありますけど、どうぞ宜しくお願いします(笑)`,
       visitTime: '2019-07-17 12:10:30',
       isChecked: true
     }
