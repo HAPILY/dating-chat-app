@@ -1,7 +1,7 @@
 <template>
-  <div class="message my-4">
+  <div class="visit my-4">
     <div v-for="item in list" :key="item.id">
-      <nuxt-link :to="`/message/${item.id}/info`">
+      <nuxt-link :to="`/Profile/${item.id}`">
         <CardListInfo :item="item" />
       </nuxt-link>
     </div>
@@ -13,12 +13,12 @@ import { mapActions, mapGetters } from 'vuex'
 import CardListInfo from '@/components/molecules/CardListInfo/CardListInfo'
 
 export default {
-  name: 'MessageList',
+  name: 'Visit',
   components: {
     CardListInfo
   },
   computed: {
-    ...mapGetters('message', {
+    ...mapGetters('visit', {
       getList: 'list'
     }),
     list () {
@@ -29,12 +29,16 @@ export default {
     this.fetch()
   },
   methods: {
-    ...mapActions('message', {
-      fetchList: 'fetchList'
+    ...mapActions('visit', {
+      fetchList: 'fetchList',
+      updateChecked: 'updateChecked'
     }),
     async fetch () {
       await this.fetchList()
     }
+  },
+  async beforeDestroy () {
+    await this.updateChecked(this.list)
   }
 }
 </script>

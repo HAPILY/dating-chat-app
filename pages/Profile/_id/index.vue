@@ -1,5 +1,5 @@
 <template>
-  <div class="mypage-container">
+  <div class="profile-container">
     <div class="image-wrap">
       <BackgroundImage :profile="profile" :is-edit="false" />
       <FaceImage :profile="profile" :is-edit="false" />
@@ -10,11 +10,6 @@
         <span>
           {{ profile.age }}歳 / {{ profile.prefecture }}
         </span>
-        <nuxt-link to="/Mypage/edit">
-          <v-btn outlined x-small icon>
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-        </nuxt-link>
       </div>
       <div class="detail">
         <p>{{ profile.detail }}</p>
@@ -29,35 +24,48 @@ import BackgroundImage from '@/components/molecules/BackgroundImage/BackgroundIm
 import FaceImage from '@/components/molecules/FaceImage/FaceImage'
 
 export default {
-  name: 'Mypage',
+  name: 'Profile',
   components: {
     BackgroundImage,
     FaceImage
   },
-  computed: {
-    ...mapGetters('mypage', {
-      getProfile: 'profile'
-    }),
-    profile () {
-      return this.getProfile
+  data () {
+    return {
+      profile: {}
     }
   },
-  created () {
-    this.fetch()
+  computed: {
+    ...mapGetters({
+      getSettings: 'settings'
+    }),
+    settings () {
+      return this.getSettings
+    }
+  },
+  async created () {
+    await this.fetch()
+    if (this.settings.visit) {
+      await this.sendVisited()
+    }
   },
   methods: {
-    ...mapActions('mypage', {
-      fetchProfile: 'fetchProfile'
+    ...mapActions('profile', {
+      fetchProfile: 'fetchProfile',
+      sendVisitLog: 'sendVisitLog'
     }),
     async fetch () {
-      await this.fetchProfile()
+      const res = await this.fetchProfile(this.$route.params.id)
+      this.profile = res
+    },
+    async sendVisited () {
+      await this.sendVisitLog({ from: this.profile.id, to: this.$route.params.id })
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.mypage-container {
+.profile-container {
   position: relative;
 
   .image-wrap {

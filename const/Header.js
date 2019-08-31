@@ -16,9 +16,14 @@ export default {
       to: '/TopPersonality'
     },
     {
+      icon: 'mdi-gnome',
+      title: '足跡',
+      to: '/Visit'
+    },
+    {
       icon: 'mdi-account',
       title: 'マイページ',
-      to: '/Mypage'
+      to: '/Profile'
     }
   ]
 }
