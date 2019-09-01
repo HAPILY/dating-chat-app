@@ -89,8 +89,8 @@
 </template>
 
 <script>
-import SearchDialog from '../organisms/SearchDialog/SearchDialog'
 import { mapGetters } from 'vuex'
+import SearchDialog from '../organisms/SearchDialog/SearchDialog'
 import CONST from '@/const'
 
 export default {
@@ -105,7 +105,7 @@ export default {
   },
   components: {
     SearchDialog
-  }
+  },
   computed: {
     ...mapGetters('visit', {
       getList: 'list'
