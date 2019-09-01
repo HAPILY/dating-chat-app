@@ -54,7 +54,7 @@
           <v-select
             v-model="value"
             class="mx-5"
-            :items="items"
+            :items="professionList"
             attach
             chips
             label="職種"
@@ -66,7 +66,7 @@
           <v-select
             v-model="value"
             class="mx-5"
-            :items="items"
+            :items="hobbyList"
             attach
             chips
             label="趣味選択"
@@ -95,7 +95,8 @@ export default {
     return {
       title: '探す',
       prefectureList: CONST.Prefecture,
-      items: ['foo', 'bar', 'fizz', 'buzz'],
+      hobbyList: CONST.Hobby,
+      professionList: CONST.Profession,
       searchDialog: false
     }
   },
