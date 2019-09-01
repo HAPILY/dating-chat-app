@@ -37,7 +37,10 @@
           :key="i"
           class="header-icon"
         >
-          <nuxt-link :to="item.to">
+          <search-dialog
+            v-if="i === 0"
+          ></search-dialog>
+          <nuxt-link :to="item.to" v-else>
             <v-badge
               v-if="item.icon === 'mdi-gnome' && visit"
               color="primary"
@@ -87,6 +90,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import SearchDialog from '../organisms/SearchDialog/SearchDialog'
 import CONST from '@/const'
 
 export default {
@@ -98,6 +102,9 @@ export default {
       settingItems: CONST.Setting.items,
       title: 'Vuetify.js'
     }
+  },
+  components: {
+    SearchDialog
   },
   computed: {
     ...mapGetters('visit', {
