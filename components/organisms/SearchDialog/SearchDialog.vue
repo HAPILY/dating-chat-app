@@ -44,7 +44,7 @@
           <v-select
             v-model="value"
             class="mx-5"
-            :items="items"
+            :items="prefectureList"
             prepend-icon="mdi-map-marker"
             label="居住地"
           ></v-select>
@@ -87,11 +87,14 @@
 </template>
 
 <script>
+import CONST from '@/const'
+
 export default {
   name: 'SearchDialog',
   data () {
     return {
       title: '探す',
+      prefectureList: CONST.Prefecture,
       items: ['foo', 'bar', 'fizz', 'buzz'],
       searchDialog: false
     }
