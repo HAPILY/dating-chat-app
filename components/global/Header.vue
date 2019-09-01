@@ -10,7 +10,18 @@
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-badge
+              v-if="item.icon === 'mdi-gnome' && visit"
+              color="primary"
+              overlap
+              class="align-self-center"
+            >
+              <template v-slot:badge>
+                <span>!</span>
+              </template>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-badge>
+            <v-icon v-else>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -30,7 +41,18 @@
             v-if="i === 0"
           ></search-dialog>
           <nuxt-link :to="item.to" v-else>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-badge
+              v-if="item.icon === 'mdi-gnome' && visit"
+              color="primary"
+              overlap
+              class="align-self-center"
+            >
+              <template v-slot:badge>
+                <span>!</span>
+              </template>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-badge>
+            <v-icon v-else>{{ item.icon }}</v-icon>
             <div class="header-name">
               {{ item.title }}
             </div>
@@ -39,7 +61,7 @@
       </div>
       <v-toolbar-title v-text="title" />
       <div class="setting-icon">
-        <nuxt-link class="setting-link" to="/Mypage/setting">
+        <nuxt-link class="setting-link" to="/Profile/setting">
           <v-btn class="setting-btn-sp" icon>
             <v-icon>mdi-settings</v-icon>
           </v-btn>
@@ -68,6 +90,7 @@
 
 <script>
 import SearchDialog from '../organisms/SearchDialog/SearchDialog'
+import { mapGetters } from 'vuex'
 import CONST from '@/const'
 
 export default {
@@ -82,6 +105,17 @@ export default {
   },
   components: {
     SearchDialog
+  }
+  computed: {
+    ...mapGetters('visit', {
+      getList: 'list'
+    }),
+    visit () {
+      const list = this.getList
+      return list.some((v) => {
+        return v.isChecked
+      })
+    }
   }
 }
 </script>
