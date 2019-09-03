@@ -21,6 +21,9 @@ export default {
             display: false
           }
         },
+        legend: {
+          display: false
+        },
         maintainAspectRatio: false,
         animation: {
           duration: 1500,

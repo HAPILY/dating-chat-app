@@ -22,8 +22,8 @@
           :style="isCur(index) ? mainCardStyle() : bentchCardStyle(index)"
         >
           <v-img class="avatar" :src="content.src">
-            <div class="stamp is-approved" id="approved">LIKE</div>
-            <div class="stamp is-nope" id="nope">NOPE</div>
+            <div class="stamp is-approved" id="approved">{{ stamps.yes }}</div>
+            <div class="stamp is-nope" id="nope">{{ stamps.no }}</div>
             <v-card-title class="title align-end fill-height">
               {{ content.name }}
               <v-spacer />
@@ -55,6 +55,10 @@ export default {
   props: {
     contents: {
       type: Array,
+      required: true
+    },
+    stamps: {
+      type: Object,
       required: true
     }
   },
