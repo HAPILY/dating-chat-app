@@ -1,7 +1,7 @@
 <template>
   <div class="personality-select-page">
     <div class="swipe-cards" @click="changePage()">
-      <swipe-card :contents="questions" />
+      <swipe-card :contents="questions" :stamps="stamps" />
     </div>
   </div>
 </template>
@@ -16,7 +16,11 @@ export default {
   },
   data () {
     return {
-      questions: CONST.Personality.questions
+      questions: CONST.Personality.questions,
+      stamps: {
+        yes: 'YES',
+        no: 'NO'
+      }
     }
   },
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <div class="top-face-page">
-    <swipe-card :contents="people" />
+    <swipe-card :contents="people" :stamps="stamps" />
   </div>
 </template>
 
@@ -44,7 +44,11 @@ export default {
           name: 'S.T',
           age: 20
         }
-      ]
+      ],
+      stamps: {
+        yes: 'LIKE',
+        no: 'NOPE'
+      }
     }
   }
 }

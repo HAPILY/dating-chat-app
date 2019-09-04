@@ -3,7 +3,7 @@ export default {
     {
       icon: 'mdi-magnify',
       title: '探す',
-      to: '/TopPersonality'
+      to: '/Search'
     },
     {
       icon: 'mdi-map-marker-question',
