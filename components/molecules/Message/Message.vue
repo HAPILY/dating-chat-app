@@ -46,11 +46,14 @@ export default {
 
 <style lang="scss" scoped>
 .message {
+  background: color(white, base);
+  border: 1px solid color(gray, base);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   box-sizing: border-box;
   height: calc(100vh - 9.5rem);
   overflow-y: auto;
   padding: 10px;
-  background-color: #424242;
 
   &.own {
     text-align: right;
@@ -69,13 +72,14 @@ export default {
   }
   &-time {
     font-size: 10px;
-    color: color(gray, light);
+    color: color(gray, dark);
     margin-left: 55px;
   }
 
   .content {
-    padding: 8px;
-    background-color: color(blue, light);
+    padding: 12px;
+    color: color(white, base);
+    background-color: color(blue, base);
     border-radius: 10px;
     display:inline-block;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);

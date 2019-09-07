@@ -6,7 +6,7 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer app>
+    <v-footer app class="footer">
       <span>&copy; 2019</span>
     </v-footer>
   </v-app>
@@ -32,7 +32,13 @@ export default {
   margin: auto;
 }
 .v-content {
+  background: color(white, base);
   z-index: 1;
   transition: none;
+}
+.footer {
+  background: color(blue, base);
+  color: color(white, base);
+  padding: 20px;
 }
 </style>

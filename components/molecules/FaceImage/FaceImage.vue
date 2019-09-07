@@ -1,7 +1,7 @@
 <template>
   <div class="face-image">
     <v-img :src="profile.face" />
-    <v-btn v-if="isEdit" icon>
+    <v-btn v-if="isEdit" color="white" icon>
       <v-icon>mdi-camera</v-icon>
     </v-btn>
   </div>
@@ -40,7 +40,7 @@ export default {
     position: absolute;
     right: 0;
     background-color: rgb(0, 0, 0, 1);
-    border: 1px solid #FFF;
+    border: 1px solid color(white, base);
   }
 }
 
@@ -58,7 +58,6 @@ export default {
     left: 0;
     right: 0;
     margin: auto;
-
   }
 }
 </style>

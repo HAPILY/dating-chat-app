@@ -1,11 +1,14 @@
 <template>
-  <div class="profile-container">
-    <div class="image-wrap">
+  <div class="profile">
+    <div class="profile-image">
       <BackgroundImage :profile="profile" :is-edit="false" />
       <FaceImage :profile="profile" :is-edit="false" />
     </div>
-    <div class="profile">
-      <div class="basic">
+    <v-card
+      class="mx-auto pa-4 profile-card"
+    >
+      <v-card-title class="profile-card-title">基本プロフィール</v-card-title>
+      <div class="profile-basic">
         {{ profile.name }}
         <span>
           {{ profile.age }}歳 / {{ profile.prefecture }}
@@ -16,10 +19,10 @@
           </v-btn>
         </nuxt-link>
       </div>
-      <div class="detail">
+      <div class="profile-detail">
         <p>{{ profile.detail }}</p>
       </div>
-    </div>
+    </v-card>
   </div>
 </template>
 
@@ -57,14 +60,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.profile-container {
+.profile {
   position: relative;
 
-  .image-wrap {
+  &-image {
     height: 350px;
   }
+  &-card {
+    background: color(white, base);
+    &-title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+  }
 
-  .basic {
+  &-basic {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
@@ -74,7 +84,7 @@ export default {
       font-weight: 100;
     }
   }
-  .detail {
+  &-detail {
     padding: 0 12px;
     line-height: 1.4;
     > p {

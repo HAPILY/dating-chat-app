@@ -61,7 +61,9 @@ export default {
   height: 250px;
 }
 .column-title {
+  color: color(white, base);
   font-size: 24px;
+  font-weight: bold;
 }
 .content {
   margin-top: 20px;

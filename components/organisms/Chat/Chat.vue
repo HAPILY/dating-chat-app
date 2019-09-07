@@ -84,14 +84,18 @@ export default {
   height: 90vh;
 }
 .typer{
+  background: color(white, base);
+  padding: 15px;
+  border: 1px solid color(gray, base);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   overflow: scroll;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   bottom: 0;
   width: 100%;
-  padding-left: 15px;
   background-color: #424242;
-  box-shadow: 0 -5px 10px -5px rgba(0,0,0,.2);
+  box-shadow: 0 0 10px -5px rgba(0,0,0,.2);
 }
 </style>

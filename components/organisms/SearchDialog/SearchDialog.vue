@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="searchDialog">
     <div @click="openSearchDialog">
-      <v-icon>mdi-magnify</v-icon>
+      <v-icon color="white">mdi-magnify</v-icon>
       <div class="header-name">
         {{ title }}
       </div>
@@ -14,7 +14,7 @@
       scrollable
     >
       <v-card tile>
-        <v-toolbar>
+        <v-toolbar class="searchDialog-header">
           <v-btn
             icon
             dark
@@ -60,7 +60,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .v-toolbar {
+.searchDialog {
+  &-header {
+    background: color(blue, base);
+    color: color(white, base);
     flex: 0;
   }
+}
 </style>

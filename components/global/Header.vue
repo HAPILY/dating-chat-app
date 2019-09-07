@@ -12,16 +12,16 @@
           <v-list-item-action>
             <v-badge
               v-if="item.icon === 'mdi-gnome' && visit"
-              color="primary"
+              color="white"
               overlap
               class="align-self-center"
             >
               <template v-slot:badge>
-                <span>!</span>
+                <span class="nav-drawer-visit">!</span>
               </template>
-              <v-icon>{{ item.icon }}</v-icon>
+              <v-icon color="white">{{ item.icon }}</v-icon>
             </v-badge>
-            <v-icon v-else>{{ item.icon }}</v-icon>
+            <v-icon v-else color="white">{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -30,7 +30,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar class="header" app>
-      <v-app-bar-nav-icon class="hamburger-icon" @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon class="hamburger-icon" color="white" @click.stop="drawer = !drawer" />
       <div class="justify-space-between transition-list">
         <div
           v-for="(item, i) in items"
@@ -43,16 +43,16 @@
           <nuxt-link :to="item.to" v-else>
             <v-badge
               v-if="item.icon === 'mdi-gnome' && visit"
-              color="primary"
               overlap
+              color="white"
               class="align-self-center"
             >
               <template v-slot:badge>
-                <span>!</span>
+                <span class="header-icon-visit">!</span>
               </template>
-              <v-icon>{{ item.icon }}</v-icon>
+              <v-icon color="white">{{ item.icon }}</v-icon>
             </v-badge>
-            <v-icon v-else>{{ item.icon }}</v-icon>
+            <v-icon v-else color="white">{{ item.icon }}</v-icon>
             <div class="header-name">
               {{ item.title }}
             </div>
@@ -63,19 +63,20 @@
       <div class="setting-icon">
         <nuxt-link class="setting-link" to="/Profile/setting">
           <v-btn class="setting-btn-sp" icon>
-            <v-icon>mdi-settings</v-icon>
+            <v-icon color="white">mdi-settings</v-icon>
           </v-btn>
         </nuxt-link>
         <v-menu bottom left>
           <template v-slot:activator="{ on }">
             <v-btn class="setting-btn-pc" icon v-on="on">
-              <v-icon>mdi-settings</v-icon>
+              <v-icon color="white">mdi-settings</v-icon>
             </v-btn>
           </template>
-          <v-list class="setting-item">
+          <v-list class="setting-items">
             <v-list-item
               v-for="(item, i) in settingItems"
               :key="i"
+              class="setting-item"
             >
               <nuxt-link :to="item.to">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -121,6 +122,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header {
+  background-color: color(blue, base);
+  border-color: color(blue, base);
+  color: color(white, base);
+}
 @include media (xl, lg) {
   .header {
     position: initial;
@@ -140,7 +146,12 @@ export default {
       text-align: center;
 
       > a {
-        color: color(white, base)
+        color: color(white, base);
+      }
+
+      &-visit {
+        color: color(blue, base);
+        font-weight: bold;
       }
     }
 
@@ -152,7 +163,7 @@ export default {
     display: none;
   }
   .setting-item {
-    border-bottom: 1px solid #FFF;
+    border-bottom: 1px solid color(gray, base);
 
     &:last-child {
       border-bottom: none;
@@ -164,7 +175,7 @@ export default {
       padding: 14px;
 
       &:hover {
-        background-color: rgba(217, 217, 217, 0.3);
+        background-color: rgba(32, 160, 224, 0.4);
       }
     }
   }
@@ -175,6 +186,7 @@ export default {
     display: none;
   }
   .nav-drawer {
+    background: color(blue, dark);
     z-index: 11;
     a {
       padding: 10px;
@@ -182,6 +194,14 @@ export default {
       .v-list-item__action {
         margin-right: 10px !important;
       }
+      .v-list-item__content {
+        color: color(white, base);
+      }
+    }
+
+    &-visit {
+      color: color(blue, base);
+      font-weight: bold;
     }
   }
   .setting-btn-pc {

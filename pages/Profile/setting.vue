@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .setting {
   &-list {
-    border-bottom: 1px solid color(white, base);
+    border-bottom: 1px solid color(gray, base);
   }
   &-icon {
     margin-top: 0px;

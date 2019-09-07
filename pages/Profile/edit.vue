@@ -100,6 +100,7 @@ export default {
 
 .profile-container {
   position: relative;
+  padding-bottom: 20px;
 
   .image-wrap {
     height: 350px;
