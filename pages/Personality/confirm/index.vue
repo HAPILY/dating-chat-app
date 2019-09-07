@@ -27,7 +27,7 @@
       </v-list-item-action>
     </v-list-item>
     <nuxt-link to="/Personality/result">
-      <v-btn block color="blue-grey" dark>
+      <v-btn class="result" block color="blue-grey" dark>
         結果をみる
       </v-btn>
     </nuxt-link>
@@ -49,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 .setting {
   &-list {
-    border-bottom: 1px solid color(white, base);
+    border-bottom: 1px solid color(gray, base);
   }
   &-icon {
     margin-top: 0px;
@@ -59,5 +59,8 @@ export default {
 }
 .answer_content {
   margin: 0 10px;
+}
+.result {
+  margin-top: 20px;
 }
 </style>

@@ -68,6 +68,7 @@ export default {
 <style lang="scss" scoped>
 .cardListInfo {
   &-list {
+    background: color(white, base);
     padding: 25px;
     position: relative;
     overflow: hidden;
@@ -87,6 +88,7 @@ export default {
     padding: 0 0 20px;
   }
   &-label {
+    color: color(white, base);
     height: 40px;
     position: absolute;
     top: -5px;
@@ -102,11 +104,13 @@ export default {
     margin-bottom: 10px;
   }
   &-detail {
+    color: color(black, dark);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
   &-time {
+    color: color(black, dark);
     position: absolute;
     bottom: 0;
     font-size: 12px;

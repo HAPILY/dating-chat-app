@@ -1,5 +1,5 @@
 <template>
-  <v-card tile>
+  <v-card tile class="searchForm">
     <v-list>
       <v-list-item class="ma-5">
         <v-list-item-content>
@@ -67,5 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.searchForm {
+  height: 100vh;
+}
 </style>

@@ -5,7 +5,7 @@
       aspect-ratio="1"
       max-height="250"
     />
-    <v-btn v-if="isEdit" icon>
+    <v-btn v-if="isEdit" color="white" icon>
       <v-icon>mdi-camera</v-icon>
     </v-btn>
   </div>
@@ -21,7 +21,7 @@ export default {
     },
     isEdit: {
       type: Boolean,
-      default: true
+      default: false
     }
   }
 }
@@ -36,6 +36,7 @@ export default {
     position: absolute;
     right: 0;
     background-color: rgb(0, 0, 0, 0.7);
+    border: 1px solid color(white, base);
   }
 }
 </style>

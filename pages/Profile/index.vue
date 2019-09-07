@@ -1,37 +1,30 @@
 <template>
-  <div class="profile-container">
-    <div class="image-wrap">
-      <BackgroundImage :profile="profile" :is-edit="false" />
-      <FaceImage :profile="profile" :is-edit="false" />
+  <div class="profile">
+    <div class="profile-image">
+      <BackgroundImage :profile="profile" />
+      <FaceImage :profile="profile" />
     </div>
-    <div class="profile">
-      <div class="basic">
-        {{ profile.name }}
-        <span>
-          {{ profile.age }}歳 / {{ profile.prefecture }}
-        </span>
-        <nuxt-link to="/Profile/edit">
-          <v-btn outlined x-small icon>
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-        </nuxt-link>
-      </div>
-      <div class="detail">
-        <p>{{ profile.detail }}</p>
-      </div>
-    </div>
+    <v-card class="mx-auto pa-4 profile-card">
+      <v-card-title class="profile-card-title">基本プロフィール</v-card-title>
+      <BasicProfile :profile="profile" />
+      <DetailProfile :profile="profile" />
+    </v-card>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import BackgroundImage from '@/components/molecules/BackgroundImage/BackgroundImage'
+import BasicProfile from '@/components/molecules/BasicProfile/BasicProfile'
+import DetailProfile from '@/components/molecules/DetailProfile/DetailProfile'
 import FaceImage from '@/components/molecules/FaceImage/FaceImage'
 
 export default {
   name: 'Profile',
   components: {
     BackgroundImage,
+    BasicProfile,
+    DetailProfile,
     FaceImage
   },
   computed: {
@@ -57,24 +50,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.profile-container {
+.profile {
   position: relative;
 
-  .image-wrap {
+  &-image {
     height: 350px;
   }
-
-  .basic {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    > span {
-      font-size: 18px;
-      font-weight: 100;
+  &-card {
+    background: color(white, base);
+    &-title {
+      font-size: 22px;
+      font-weight: bold;
     }
   }
-  .detail {
+
+  &-detail {
     padding: 0 12px;
     line-height: 1.4;
     > p {
