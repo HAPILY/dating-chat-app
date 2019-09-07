@@ -1,5 +1,5 @@
 <template>
-  <v-layout row class="justify-center">
+  <v-layout row class="mb-5 justify-center">
     <v-flex xs12 sm10 order-xs2 style="position: relative;">
       <div>
         <message :messages="message" />
@@ -95,7 +95,6 @@ export default {
   align-items: center;
   bottom: 0;
   width: 100%;
-  background-color: #424242;
   box-shadow: 0 0 10px -5px rgba(0,0,0,.2);
 }
 </style>
