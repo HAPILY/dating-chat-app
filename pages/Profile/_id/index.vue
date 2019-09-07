@@ -1,20 +1,13 @@
 <template>
   <div class="profile">
     <div class="profile-image">
-      <BackgroundImage :profile="profile" :is-edit="false" />
-      <FaceImage :profile="profile" :is-edit="false" />
+      <BackgroundImage :profile="profile" />
+      <FaceImage :profile="profile" />
     </div>
     <v-card class="mx-auto pa-4 profile-card">
       <v-card-title class="profile-card-title">基本プロフィール</v-card-title>
-      <div class="profile-basic">
-        {{ profile.name }}
-        <span>
-          {{ profile.age }}歳 / {{ profile.prefecture }}
-        </span>
-      </div>
-      <div class="detail">
-        <p>{{ profile.detail }}</p>
-      </div>
+      <BasicProfile :profile="profile" />
+      <DetailProfile :profile="profile" />
     </v-card>
   </div>
 </template>
@@ -22,12 +15,16 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import BackgroundImage from '@/components/molecules/BackgroundImage/BackgroundImage'
+import BasicProfile from '@/components/molecules/BasicProfile/BasicProfile'
+import DetailProfile from '@/components/molecules/DetailProfile/DetailProfile'
 import FaceImage from '@/components/molecules/FaceImage/FaceImage'
 
 export default {
   name: 'Profile',
   components: {
     BackgroundImage,
+    BasicProfile,
+    DetailProfile,
     FaceImage
   },
   data () {
@@ -78,25 +75,6 @@ export default {
     &-title {
       font-size: 22px;
       font-weight: bold;
-    }
-  }
-
-  &-basic {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    > span {
-      font-size: 18px;
-      font-weight: 100;
-    }
-  }
-
-  &-detail {
-    padding: 0 12px;
-    line-height: 1.4;
-    > p {
-      white-space: pre-wrap;
     }
   }
 }

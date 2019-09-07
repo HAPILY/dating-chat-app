@@ -1,8 +1,8 @@
 <template>
   <div class="profile-container">
     <div class="image-wrap">
-      <BackgroundImage :profile="profile" />
-      <FaceImage :profile="profile" />
+      <BackgroundImage :profile="profile" :isEdit="true" />
+      <FaceImage :profile="profile" :isEdit="true" />
     </div>
     <div class="profile">
       <BasicProfileEdit :profile="profile" />

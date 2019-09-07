@@ -21,7 +21,7 @@ export default {
     },
     isEdit: {
       type: Boolean,
-      default: true
+      default: false
     }
   }
 }
