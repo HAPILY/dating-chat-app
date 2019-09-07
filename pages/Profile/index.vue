@@ -4,9 +4,7 @@
       <BackgroundImage :profile="profile" :is-edit="false" />
       <FaceImage :profile="profile" :is-edit="false" />
     </div>
-    <v-card
-      class="mx-auto pa-4 profile-card"
-    >
+    <v-card class="mx-auto pa-4 profile-card">
       <v-card-title class="profile-card-title">基本プロフィール</v-card-title>
       <div class="profile-basic">
         {{ profile.name }}
