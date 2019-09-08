@@ -24,7 +24,17 @@
           </v-btn>
           <v-toolbar-title>{{ title }}</v-toolbar-title>
         </v-toolbar>
-        <search-form></search-form>
+        <search-form
+          v-model="searchValue"
+        />
+        <v-btn
+          @click="onSearch"
+          class="mt-5 searchDialog-send"
+          block
+          color="primary"
+        >
+          検索
+        </v-btn>
       </v-card>
     </v-dialog>
   </div>
@@ -32,7 +42,6 @@
 
 <script>
 import SearchForm from '@/components/organisms/SearchForm/SearchForm'
-import CONST from '@/const'
 
 export default {
   name: 'SearchDialog',
@@ -42,10 +51,14 @@ export default {
   data () {
     return {
       title: '探す',
-      prefectureList: CONST.Prefecture,
-      hobbyList: CONST.Hobby,
-      professionList: CONST.Profession,
-      searchDialog: false
+      searchDialog: false,
+      searchValue: {
+        important: '',
+        prefecture: '',
+        profession: '',
+        hobby: '',
+        freeWord: ''
+      }
     }
   },
   methods: {
@@ -54,6 +67,9 @@ export default {
     },
     closeSearchDialog () {
       this.searchDialog = false
+    },
+    onSearch () {
+      console.log(this.searchValue)
     }
   }
 }
