@@ -10,7 +10,7 @@ const data = {
       prefecture: '埼玉',
       src: 'https://1.bp.blogspot.com/_qEbjiFbQWGM/TCBVlN3mkYI/AAAAAAAADCM/7CjYqUHwbgY/s1600/workshop_modell_0126.jpg',
       detail: 'メッセージを交換していません。',
-      lastTime: '2019-08-17 12:10:30',
+      lastTime: '2019/08/17 12:10:30',
       isChecked: true
     },
     {
@@ -20,7 +20,7 @@ const data = {
       prefecture: '和歌山',
       src: 'http://static.stylemagazin.hu/medias/29280/Nem-ehezik-a-Women-of-the-Year-legjobb-modell-dijara-eselyes-szepseg_32fc7c86954a8847610499a0fc7261e2.jpg',
       detail: 'こんばんは！マッチングありがとうございます。よろしくお願いします。こんばんは！マッチングありがとうございます。よろしくお願いします。',
-      lastTime: '2019-08-15 22:10:30',
+      lastTime: '2019/08/16 22:10:30',
       isChecked: false
     },
     {
@@ -30,7 +30,7 @@ const data = {
       prefecture: '東京',
       src: 'http://w1nd.cc/promo/347.jpg',
       detail: `Hello..\n nice to meet you..\n thanks..`,
-      lastTime: '2019-07-17 12:10:30',
+      lastTime: '2019/07/17 12:10:30',
       isChecked: true
     }
   ],

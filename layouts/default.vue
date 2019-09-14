@@ -23,11 +23,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include media (xl, lg) {
-  .v-content {
-    padding: 0px 0px 36px 0 !important;
-  }
-}
 .container {
   margin: auto;
 }

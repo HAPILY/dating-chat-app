@@ -59,7 +59,9 @@
           </nuxt-link>
         </div>
       </div>
-      <v-toolbar-title v-text="title" />
+      <nuxt-link to="/">
+        <v-toolbar-title v-text="title" />
+      </nuxt-link>
       <div class="setting-icon">
         <nuxt-link class="setting-link" to="/Profile/setting">
           <v-btn class="setting-btn-sp" icon>
@@ -212,5 +214,8 @@ export default {
   position: absolute;
   right: 0;
   margin-right: 20px;
+  @include media (sm) {
+    margin-right: 0;
+  }
 }
 </style>
