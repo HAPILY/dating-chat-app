@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import firebase from '@/plugins/firebase'
 import LoginForm from '@/components/organisms/LoginForm/LoginForm'
 
 export default {
@@ -20,8 +21,18 @@ export default {
   },
   methods: {
     createAccount (mail, pass) {
-      console.log('mail', mail)
-      console.log('pass', pass)
+      firebase.auth().createUserWithEmailAndPassword(mail, pass)
+        .then((auth) => {
+          auth.user.sendEmailVerification()
+        })
+        .then(() => {
+          alert('メールアドレス確認メールを送信しました。')
+          this.$router.push('/Login')
+        })
+        .catch((err) => {
+          console.log(err)
+          alert('アカウントの作成に失敗しました。')
+        })
     }
   }
 }

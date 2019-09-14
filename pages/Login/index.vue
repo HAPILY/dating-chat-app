@@ -41,15 +41,14 @@ export default {
     login (mail, pass) {
       firebase.auth().signInWithEmailAndPassword(mail, pass)
         .then((auth) => {
-          console.log('user', auth)
           if (!auth.user.emailVerified) {
             this.errorMsg = 'メールアドレスが確認できていません'
             return
           }
           Cookies.set('clientId', auth.user.uid, { expires: 30 })
-          this.router.push('/')
-        }).catch((error) => {
-          this.errorMsg = error.message
+          this.$router.push('/')
+        }).catch((err) => {
+          this.errorMsg = err.message
         })
     }
   }

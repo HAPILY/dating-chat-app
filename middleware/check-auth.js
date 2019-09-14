@@ -1,14 +1,12 @@
-export default async function ({ app, store, redirect, req }) {
-  if (!req) {
-    return
-  }
+import Cookies from 'js-cookie'
 
-  if (req.headers.cookie) {
-    const cookies = app.$cookies.getAll({ fromRes: false })
-    if (cookies.clientId && cookies.clientId !== 'null') {
-      await store.dispatch('visit/fetchList')
-    } else {
-      return redirect('302', '/login')
+export default async function ({ store, redirect, route }) {
+  const cookies = Cookies.get('clientId')
+  if (cookies && cookies !== 'null') {
+    await store.dispatch('visit/fetchList')
+  } else {
+    if (route.name !== 'Login' && route.name !== 'Account' && route.name !== 'Logout') {
+      redirect('301', '/Login')
     }
   }
 }
