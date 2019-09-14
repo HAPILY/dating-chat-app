@@ -2,7 +2,7 @@ export default {
   mode: 'spa',
   router: {
     middleware: [
-      'set-auth'
+      'check-auth'
     ]
   },
   /*
