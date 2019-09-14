@@ -21,15 +21,6 @@
         {{ lastTime(item.lastTime) }}
       </v-card-text>
     </div>
-    <v-chip
-      v-if="!item.isChecked"
-      class="cardListInfo-label"
-      color="red"
-      label
-      large
-    >
-      New
-    </v-chip>
   </v-card>
 </template>
 
@@ -72,6 +63,25 @@ export default {
     padding: 25px;
     position: relative;
     overflow: hidden;
+    &:before {
+      content: "";
+      top: 0;
+      left: 0;
+      border-bottom: 4em solid transparent;
+      border-left: 4em solid color(red, dark);
+      position: absolute;
+      z-index: 100;
+    }
+    &:after {
+      content: "New";
+      display: block;
+      top: 10px;
+      transform: rotate(-45deg);
+      color: #FFF;
+      left: 0;
+      position: absolute;
+      z-index: 101;
+    }
   }
   &-icon {
     &-wrap {
@@ -125,6 +135,7 @@ export default {
       font-size: 16px;
     }
     &-info {
+      width: 70%;
       margin: 0;
       padding: 0 20px 20px 0;
     }
