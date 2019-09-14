@@ -186,7 +186,7 @@ export default {
     display: none;
   }
   .nav-drawer {
-    background: color(blue, dark);
+    background-color: color(blue, dark) !important;
     z-index: 11;
     a {
       padding: 10px;
