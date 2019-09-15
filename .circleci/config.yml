@@ -20,13 +20,13 @@ jobs:
           command: yarn build
 
       - run:
-        name: Deploy to Firebase
-        command: yarn deploy --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
+          name: Deploy to Firebase
+          command: yarn deploy --project=$FIREBASE_PROJECT_ID --token=$FIREBASE_TOKEN
 workflows:
   version: 2
   deploy:
     jobs:
       - deploy:
-        filters:
-          branches:
-            only: master
+          filters:
+            branches:
+              only: master
