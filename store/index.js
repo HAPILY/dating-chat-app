@@ -1,6 +1,6 @@
 // example data
 const data = {
-  uid: 'test'
+  uid: ''
 }
 
 export const state = () => ({

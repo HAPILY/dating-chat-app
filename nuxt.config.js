@@ -2,6 +2,7 @@ export default {
   mode: 'spa',
   router: {
     middleware: [
+      'set-auth',
       'check-auth'
     ]
   },
@@ -36,10 +37,6 @@ export default {
   plugins: [
     {
       src: '@/plugins/vue-chartjs',
-      ssr: false
-    },
-    {
-      src: '@/plugins/auth.js',
       ssr: false
     },
     '~/plugins/socket.io.js'
