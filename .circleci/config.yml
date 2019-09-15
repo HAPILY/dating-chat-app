@@ -21,7 +21,7 @@ jobs:
 
       - run:
           name: Deploy to Firebase
-          command: ./node_modules/.bin/firebase --project=$FB_PROJECTID --token=$FIREBASE_TOKEN
+          command: ./node_modules/.bin/firebase deploy --project=$FB_PROJECTID --token=$FIREBASE_TOKEN
 workflows:
   version: 2
   deploy:
