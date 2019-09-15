@@ -1,3 +1,6 @@
+import Cookies from 'js-cookie'
+import { userCollection } from '@/util/firestore'
+
 // example data
 const data = {
   profile: {
@@ -21,7 +24,7 @@ export const mutations = {
     state.profile[payload.type] = payload.value
   },
   setProfile (state, payload) {
-    state.profile = payload.profile
+    state.profile = payload
   }
 }
 
@@ -31,8 +34,19 @@ export const getters = {
 
 export const actions = {
   fetchMyProfile (context) {
-    const res = data
-    context.commit('setProfile', res)
+    const uid = context.rootState.uid || Cookies.get('client_id')
+    const userRef = userCollection(uid)
+    userRef.get()
+      .then((doc) => {
+        if (!doc.exists) {
+          console.log('ユーザー取得が存在しません')
+        } else {
+          context.commit('setProfile', doc.data())
+        }
+      })
+      .catch((err) => {
+        console.log('ユーザー取得に失敗しました', err)
+      })
   },
   fetchProfile (context) {
     const res = data.profile
@@ -42,7 +56,13 @@ export const actions = {
     context.commit('setProfileState', payload)
   },
   updateProfile (context, payload) {
-    console.log(payload)
+    const uid = context.rootState.uid
+    const userRef = userCollection(uid)
+    userRef.set({
+      ...payload
+    }, {
+      merge: true
+    })
   },
   sendVisitLog (context, payload) {
     console.log(payload)
