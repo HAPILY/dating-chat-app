@@ -38,6 +38,10 @@ export default {
       src: '@/plugins/vue-chartjs',
       ssr: false
     },
+    {
+      src: '@/plugins/auth.js',
+      ssr: false
+    },
     '~/plugins/socket.io.js'
   ],
   /*

@@ -45,7 +45,8 @@ export default {
             this.errorMsg = 'メールアドレスが確認できていません'
             return
           }
-          Cookies.set('clientId', auth.user.uid, { expires: 30 })
+          console.log('uid', auth.user.uid)
+          Cookies.set('client_id', auth.user.uid, { expires: 30 })
           this.$router.push('/')
         }).catch((err) => {
           this.errorMsg = err.message

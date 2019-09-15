@@ -1,36 +1,36 @@
 // example data
 const data = {
-  token: 'test'
+  uid: 'test'
 }
 
 export const state = () => ({
-  token: null,
+  uid: null,
   settings: {
     visit: true
   }
 })
 
 export const mutations = {
-  setToken (state, payload) {
-    state.token = payload.token
+  setUid (state, payload) {
+    state.uid = payload.uid
   },
-  resetToken (state) {
-    state.token = null
+  resetUid (state) {
+    state.uid = null
   }
 }
 
 export const getters = {
-  token: state => state.token,
+  uid: state => state.uid,
   settings: state => state.settings
 }
 
 export const actions = {
-  fetchToken (context) {
+  fetchUid (context) {
     const res = data
-    context.commit('setToken', res)
+    context.commit('setUid', res)
   },
-  deleteToken (context) {
+  deleteUid (context) {
     // ログアウト時に使う予定?
-    context.commit('resetToken')
+    context.commit('resetUid')
   }
 }

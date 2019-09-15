@@ -12,7 +12,7 @@ export default {
   fetch ({ redirect }) {
     firebase.auth().signOut()
       .then(() => {
-        Cookies.remove('clientId')
+        Cookies.remove('client_id')
         redirect('/login')
       }).catch((err) => {
         alert(err)

@@ -24,6 +24,11 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(mail, pass)
         .then((auth) => {
           auth.user.sendEmailVerification()
+          const user = firebase.auth().currentUser
+          const refUser = firebase.firestore().collection('users').doc(user.uid)
+          refUser.set({
+            email: user.email
+          })
         })
         .then(() => {
           alert('メールアドレス確認メールを送信しました。')
