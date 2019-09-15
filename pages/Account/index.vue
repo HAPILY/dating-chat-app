@@ -4,6 +4,7 @@
       アカウント作成
     </v-card-title>
     <LoginForm
+      type="create"
       @send="createAccount"
     />
   </v-card>

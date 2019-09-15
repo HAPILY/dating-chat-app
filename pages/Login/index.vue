@@ -10,7 +10,9 @@
       {{ errorMsg }}
     </p>
     <LoginForm
+      type="login"
       @send="login"
+      @fbLogin="fbLogin"
     />
     <nuxt-link
       to="/Account"
@@ -51,6 +53,10 @@ export default {
         }).catch((err) => {
           this.errorMsg = err.message
         })
+    },
+    fbLogin () {
+      const provider = new firebase.auth.FacebookAuthProvider()
+      firebase.auth().signInWithRedirect(provider)
     }
   }
 }
