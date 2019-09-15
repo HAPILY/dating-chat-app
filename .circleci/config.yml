@@ -21,7 +21,7 @@ jobs:
 
       - run:
           name: Deploy to Firebase
-          command: yarn deploy --project=$FIREBASE_PROJECT_ID --token=$FIREBASE_TOKEN
+          command: ./node_modules/.bin/firebase --project=$FIREBASE_PROJECT_ID --token=$FIREBASE_TOKEN
 workflows:
   version: 2
   deploy:
