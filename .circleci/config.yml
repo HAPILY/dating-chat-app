@@ -5,13 +5,13 @@ executors:
     docker:
       - image: circleci/node:12.8.0
         environment:
-          FB_PROJECTID: 'dating-chat-app-53a68',
-          FB_API_KEY: 'AIzaSyDIBhycK5Sy8THB0Jo8ftJ7GpizUVAU1mY',
-          FB_AUTH_DOMAIN: 'dating-chat-app-53a68.firebaseapp.com',
-          FB_DATABASE_URL: 'https://dating-chat-app-53a68.firebaseio.com',
-          FB_STORAGE_BUCKET: 'dating-chat-app-53a68.appspot.com',
-          FB_MESSAGING_SENDER_ID: '236260755383',
-          FB_APP_ID: '1:236260755383:web:7a18ec587dfa75e1df8a32',
+          FB_PROJECTID: 'dating-chat-app-53a68'
+          FB_API_KEY: 'AIzaSyDIBhycK5Sy8THB0Jo8ftJ7GpizUVAU1mY'
+          FB_AUTH_DOMAIN: 'dating-chat-app-53a68.firebaseapp.com'
+          FB_DATABASE_URL: 'https://dating-chat-app-53a68.firebaseio.com'
+          FB_STORAGE_BUCKET: 'dating-chat-app-53a68.appspot.com'
+          FB_MESSAGING_SENDER_ID: '236260755383'
+          FB_APP_ID: '1:236260755383:web:7a18ec587dfa75e1df8a32'
           FIREBASE_TOKEN: '1/Cgn4GTWQfeGoEWGAslvToot8Jfb24bEXPJJA8UDwehY'
 jobs:
   deploy:
