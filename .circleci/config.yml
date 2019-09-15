@@ -12,14 +12,14 @@ jobs:
       - checkout
       # 依存関係のインストール
       - run:
-        name: Install dependencies
-        command: yarn install
+          name: Install dependencies
+          command: yarn install
       # Firebaseへのデプロイ
       - run:
           name: Build
           command: yarn build
 
-      - run: 
+      - run:
         name: Deploy to Firebase
         command: yarn deploy --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_TOKEN"
 workflows:
