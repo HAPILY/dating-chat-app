@@ -14,6 +14,11 @@ export default {
       icon: 'mdi-account-card-details',
       title: 'プライバシー管理',
       to: '/privacy'
+    },
+    {
+      icon: 'mdi-logout',
+      title: 'ログアウト',
+      to: '/Logout'
     }
   ]
 }
