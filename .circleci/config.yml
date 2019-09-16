@@ -15,11 +15,13 @@ jobs:
           name: Add env
           command: |
             echo "FB_API_KEY=$FB_API_KEY" > .env
+            echo "FB_APP_ID=$FB_APP_ID" >> .env
             echo "FB_AUTH_DOMAIN=$FB_AUTH_DOMAIN" >> .env
             echo "FB_DATABASE_URL=$FB_DATABASE_URL" >> .env
             echo "FB_PROJECTID=$FB_PROJECTID" >> .env
             echo "FB_STORAGE_BUCKET=$FB_STORAGE_BUCKET" >> .env
             echo "FB_MESSAGING_SENDER_ID=$FB_MESSAGING_SENDER_ID" >> .env
+            echo "FIREBASE_TOKEN=$FIREBASE_TOKEN" >> .env
       # 依存関係のインストール
       - run:
           name: Install dependencies
