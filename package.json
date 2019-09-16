@@ -10,14 +10,15 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "devHttps": "nodemon server/index.js --watch server"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "chart.js": "^2.8.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.9.2",
     "socket.io-client": "^2.2.0",
     "vue-chartjs": "^3.4.2"
   },
@@ -27,12 +28,14 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/vuetify": "^1.0.0",
     "babel-eslint": "^10.0.1",
+    "consola": "^2.10.1",
     "eslint": "^6.1.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "firebase": "^6.6.1",
     "firebase-tools": "^7.3.2",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.2",
     "sass-loader": "^7.2.0"
   }
 }

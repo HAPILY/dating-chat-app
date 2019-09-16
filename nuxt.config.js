@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   mode: 'spa',
   router: {
     middleware: [
