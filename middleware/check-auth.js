@@ -13,7 +13,9 @@ export default function ({ app, store, redirect }) {
           }
         }
       } else {
-        redirect('/Login')
+        if (to.name !== 'Login' && to.name !== 'Account' && to.name !== 'Logout') {
+          redirect('/Login')
+        }
       }
     })
   })
