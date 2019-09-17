@@ -1,6 +1,6 @@
 <template>
   <div class="searchDialog">
-    <div @click="openSearchDialog">
+    <div class="searchDialog-button" @click="openSearchDialog">
       <v-icon color="white">mdi-magnify</v-icon>
       <div class="header-name">
         {{ title }}
@@ -81,6 +81,9 @@ export default {
     background: color(blue, base);
     color: color(white, base);
     flex: 0;
+  }
+  &-button {
+    cursor : pointer;
   }
 }
 </style>
