@@ -21,7 +21,7 @@
           id="card"
           :style="isCur(index) ? mainCardStyle() : bentchCardStyle(index)"
         >
-          <v-img class="avatar" :src="content.src">
+          <v-img class="avatar" :src="content.face">
             <div class="stamp is-approved" id="approved">{{ stamps.yes }}</div>
             <div class="stamp is-nope" id="nope">{{ stamps.no }}</div>
             <v-card-title class="title align-end fill-height">

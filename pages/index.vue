@@ -30,7 +30,6 @@ export default {
   },
   created () {
     this.fetch()
-    console.log(this.getPeople)
   },
   methods: {
     ...mapActions('people', {

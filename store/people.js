@@ -6,7 +6,7 @@ export const state = () => ({
 
 export const mutations = {
   setPeople (state, payload) {
-    state.people = payload
+    state.people.push(payload)
   }
 }
 
@@ -23,11 +23,17 @@ export const actions = {
           console.log('ユーザー取得が存在しません')
         } else {
           people.forEach((doc) => {
-            context.state.people.push({
-              id: doc.id,
-              age: doc.data().age,
-              face: doc.data().face
-            })
+            context.commit(
+              'setPeople',
+              {
+                id: doc.id,
+                age: doc.data().age,
+                name: doc.data().name,
+                face: doc.data().face,
+                gender: doc.data().gender,
+                prefecture: doc.data().prefecture
+              }
+            )
           })
         }
       })
