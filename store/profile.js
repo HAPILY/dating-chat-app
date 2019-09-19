@@ -40,7 +40,6 @@ export const actions = {
         if (!doc.exists) {
           console.log('ユーザー取得が存在しません')
         } else {
-          console.log(doc.data())
           context.commit('setProfile', doc.data())
         }
       })

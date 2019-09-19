@@ -51,6 +51,9 @@ export default {
     this.fetch()
   },
   methods: {
+    ...mapActions({
+      openSnackbar: 'openSnackbar'
+    }),
     ...mapActions('profile', {
       updateProfileState: 'updateProfileState',
       fetchMyProfile: 'fetchMyProfile',
@@ -60,7 +63,7 @@ export default {
       this.profile.name || await this.fetchMyProfile()
     },
     async onSubmit () {
-      if (this.$refs.form.validate()) {
+      if (!this.$refs.form.validate()) {
         return false
       }
       const newProfile = {
@@ -73,6 +76,7 @@ export default {
         face: this.profile.face
       }
       await this.updateProfile(newProfile)
+      await this.openSnackbar({ text: 'プロフィールを登録しました。' })
     }
   }
 }

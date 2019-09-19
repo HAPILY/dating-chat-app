@@ -9,15 +9,52 @@
     <v-footer class="footer">
       <span>&copy; 2019</span>
     </v-footer>
+    <v-snackbar
+      class="snackbar"
+      v-model="snackbar"
+      color="cyan darken-2"
+    >
+      {{ snackbarText }}
+      <v-btn
+        color="white"
+        text
+        @click="closeSnackbar"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import Header from '@/components/global/Header.vue'
 
 export default {
   components: {
     Header
+  },
+  data () {
+    return {
+      timeout: 2000
+    }
+  },
+  computed: {
+    ...mapGetters({
+      getSnackbar: 'snackbar',
+      getSnackbarText: 'snackbarText'
+    }),
+    snackbar () {
+      return this.getSnackbar
+    },
+    snackbarText () {
+      return this.getSnackbarText
+    }
+  },
+  methods: {
+    ...mapActions({
+      closeSnackbar: 'closeSnackbar'
+    })
   }
 }
 </script>

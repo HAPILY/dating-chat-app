@@ -7,7 +7,9 @@ export const state = () => ({
   uid: null,
   settings: {
     visit: true
-  }
+  },
+  snackbar: false,
+  snackbarText: ''
 })
 
 export const mutations = {
@@ -16,12 +18,22 @@ export const mutations = {
   },
   resetUid (state) {
     state.uid = null
+  },
+  openSnackbar (state, payload) {
+    state.snackbar = true
+    state.snackbarText = payload
+  },
+  closeSnackbar (state) {
+    state.snackbar = false
+    state.snackbarText = ''
   }
 }
 
 export const getters = {
   uid: state => state.uid,
-  settings: state => state.settings
+  settings: state => state.settings,
+  snackbar: state => state.snackbar,
+  snackbarText: state => state.snackbarText
 }
 
 export const actions = {
@@ -32,5 +44,11 @@ export const actions = {
   deleteUid (context) {
     // ログアウト時に使う予定?
     context.commit('resetUid')
+  },
+  openSnackbar (context, payload) {
+    context.commit('openSnackbar', payload.text)
+  },
+  closeSnackbar (context) {
+    context.commit('closeSnackbar')
   }
 }
