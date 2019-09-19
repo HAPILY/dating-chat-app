@@ -34,11 +34,6 @@ export default {
   components: {
     Header
   },
-  data () {
-    return {
-      timeout: 2000
-    }
-  },
   computed: {
     ...mapGetters({
       getSnackbar: 'snackbar',
