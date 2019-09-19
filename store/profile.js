@@ -4,14 +4,13 @@ import { userCollection } from '@/util/firestore'
 // example data
 const data = {
   profile: {
-    id: 1,
-    name: '田中 太郎',
-    age: 25,
-    gender: 'man',
-    prefecture: '東京都',
-    detail: `初めましてー！\nプロフ読んでくれてありがとうございます♪\nお互いに思いやりを忘れず、くだらない事でも笑い合えて、いつまでも一人の男性として好きでいられる方と出会えることが出来ればと思っています( *´艸｀)\nちょっと天然でのんびり屋さんなとこありますけど、どうぞ宜しくお願いします(笑)`,
-    background: 'https://placehold.jp/650x650.png',
-    face: 'http://placehold.jp/24/cc9999/993333/650x650.png'
+    name: '',
+    age: null,
+    gender: '',
+    prefecture: '',
+    detail: '',
+    background: '',
+    face: ''
   }
 }
 
@@ -41,6 +40,7 @@ export const actions = {
         if (!doc.exists) {
           console.log('ユーザー取得が存在しません')
         } else {
+          console.log(doc.data())
           context.commit('setProfile', doc.data())
         }
       })

@@ -34,7 +34,9 @@ export default {
   box-shadow: none;
 
   > div {
+    height: 100%;
     border-radius: 100%;
+    background-color: color(gray, dark);
   }
   > button {
     position: absolute;

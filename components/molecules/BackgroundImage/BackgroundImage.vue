@@ -31,6 +31,7 @@ export default {
 .background-image {
   display: flex;
   align-items: flex-end;
+  background-color: color(black, base);
 
   > button {
     position: absolute;
