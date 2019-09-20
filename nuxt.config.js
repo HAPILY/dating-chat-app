@@ -3,7 +3,8 @@ export default {
   router: {
     middleware: [
       'set-auth',
-      'check-auth'
+      'check-auth',
+      'check-profile'
     ]
   },
   /*

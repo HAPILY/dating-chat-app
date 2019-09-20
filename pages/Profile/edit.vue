@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-container">
+  <v-form class="profile-container" ref="form">
     <div class="image-wrap">
       <BackgroundImage :profile="profile" :isEdit="true" />
       <FaceImage :profile="profile" :isEdit="true" />
@@ -21,7 +21,7 @@
         更新
       </v-btn>
     </div>
-  </div>
+  </v-form>
 </template>
 
 <script>
@@ -51,15 +51,21 @@ export default {
     this.fetch()
   },
   methods: {
+    ...mapActions({
+      openSnackbar: 'openSnackbar'
+    }),
     ...mapActions('profile', {
       updateProfileState: 'updateProfileState',
-      fetchProfile: 'fetchProfile',
+      fetchMyProfile: 'fetchMyProfile',
       updateProfile: 'updateProfile'
     }),
     async fetch () {
-      this.profile.name || await this.fetchProfile()
+      this.profile.name || await this.fetchMyProfile()
     },
     async onSubmit () {
+      if (!this.$refs.form.validate()) {
+        return false
+      }
       const newProfile = {
         name: this.profile.name,
         age: this.profile.age,
@@ -70,6 +76,7 @@ export default {
         face: this.profile.face
       }
       await this.updateProfile(newProfile)
+      await this.openSnackbar({ text: 'プロフィールを登録しました。' })
     }
   }
 }
