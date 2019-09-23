@@ -8,6 +8,10 @@
 References
 https://qiita.com/sinmetal/items/154e81823f386279b33c
 
+## production
+
+https://dating-chat-app-53a68.firebaseapp.com/
+
 ## environment
 
 - Nuxt.js (https://nuxtjs.org)
