@@ -7,7 +7,7 @@
     >
       <nuxt-link class="d-flex" :to="`/Column/${item.id}`">
         <v-list-item-avatar class="setting-icon">
-          <v-img :src="item.src" />
+          <v-img :src="item.image" />
         </v-list-item-avatar>
 
         <v-list-item-content>
@@ -33,10 +33,10 @@ export default {
   name: 'Column',
   computed: {
     ...mapGetters('column', {
-      getList: 'list'
+      getColumn: 'column'
     }),
     list () {
-      return this.getList
+      return this.getColumn
     }
   },
   created () {
@@ -44,10 +44,10 @@ export default {
   },
   methods: {
     ...mapActions('column', {
-      fetchList: 'fetchList'
+      fetchColumn: 'fetchColumn'
     }),
     async fetch () {
-      await this.fetchList()
+      await this.fetchColumn()
     }
   }
 }

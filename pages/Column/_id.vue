@@ -1,6 +1,6 @@
 <template>
   <v-card class="column mt-7 mx-auto">
-    <v-img class="column-image" :src="item.src">
+    <v-img class="column-image" :src="item.image">
       <v-card-title class="column-title align-end fill-height">
         {{ item.title }}
       </v-card-title>
@@ -30,10 +30,10 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters('column', {
-      getList: 'list'
+      getColumn: 'column'
     }),
     list () {
-      return this.getList
+      return this.getColumn
     },
     item () {
       return this.list[this.$route.params.id - 1]
@@ -44,10 +44,10 @@ export default {
   },
   methods: {
     ...mapActions('column', {
-      fetchList: 'fetchList'
+      fetchList: 'fetchColumn'
     }),
     async fetch () {
-      this.list.length === 0 && await this.fetchList()
+      this.list.length === 0 && await this.fetchColumn()
     }
   }
 }
