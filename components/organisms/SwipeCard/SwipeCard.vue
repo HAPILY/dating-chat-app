@@ -82,7 +82,7 @@ export default {
     },
     checkFace () {
       const difX = this.moveStatus.move.x - this.moveStatus.start.x
-      const type = difX <= -50 ? 'Nope' : difX >= 50 ? 'Like' : 'None'
+      const type = difX <= -150 ? 'Nope' : difX >= 150 ? 'Like' : 'None'
       return type
     }
   },
@@ -142,11 +142,11 @@ export default {
       const approved = document.getElementById('approved')
       const nope = document.getElementById('nope')
       const card = document.getElementById('card')
-      if (this.moveStatus.ratio > 0.27) {
+      if (this.moveStatus.ratio > 0.83) {
         approved.style.opacity = 1
         // green
         card.style.backgroundColor = '#0A9928'
-      } else if (this.moveStatus.ratio < -0.27) {
+      } else if (this.moveStatus.ratio < -0.83) {
         nope.style.opacity = 1
         // red
         card.style.backgroundColor = '#D23'
@@ -265,7 +265,9 @@ export default {
       }
       return style
     },
-    submit (type, item) {}
+    submit (type, item) {
+      this.$emit('submit', type, item)
+    }
   }
 }
 </script>
