@@ -1,20 +1,20 @@
 <template>
   <div>
     <v-list-item
-      v-for="question in questions"
-      :key="question.id"
+      v-for="answer in answers"
+      :key="answer.id"
       class="setting-list"
     >
       <v-list-item-avatar class="setting-icon">
-        <v-img :src="question.src" />
+        <v-img :src="answer.face" />
       </v-list-item-avatar>
 
       <v-list-item-content>
-        Q{{ question.id }}<v-list-item-title v-text="question.name" />
+        Q{{ answer.id }}<v-list-item-title v-text="answer.name" />
       </v-list-item-content>
       <v-chip class="justify-end">
         <div class="answer_content">
-          はい
+          {{ answer.answer }}
         </div>
       </v-chip>
 
@@ -35,12 +35,26 @@
 </template>
 
 <script>
-import CONST from '@/const'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  data () {
-    return {
-      questions: CONST.Personality.questions
+  computed: {
+    ...mapGetters('personality', {
+      getAnswer: 'answer'
+    }),
+    answers () {
+      return this.getAnswer
+    }
+  },
+  created () {
+    this.fetch()
+  },
+  methods: {
+    ...mapActions('personality', {
+      fetchAnswer: 'fetchAnswer'
+    }),
+    async fetch () {
+      await this.fetchAnswer()
     }
   }
 }
