@@ -10,7 +10,9 @@
       {{ errorMsg }}
     </p>
     <LoginForm
+      type="login"
       @send="login"
+      @fbLogin="fbLogin"
     />
     <nuxt-link
       to="/Account"
@@ -51,6 +53,34 @@ export default {
         }).catch((err) => {
           this.errorMsg = err.message
         })
+    },
+    fbLogin () {
+      const provider = new firebase.auth.FacebookAuthProvider()
+      provider.setCustomParameters({
+        'display': 'popup'
+      })
+      firebase.auth().signInWithPopup(provider).then((result) => {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const token = result.credential.accessToken
+        console.log('token', token)
+        // The signed-in user info.
+        const user = result.user
+        console.log('user', user)
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code
+        const errorMessage = error.message
+        console.log('errorCode', errorCode)
+        console.log('errorMessage', errorMessage)
+        // The email of the user's account used.
+        const email = error.email
+        // The firebase.auth.AuthCredential type that was used.
+        const credential = error.credential
+        console.log('email', email)
+        console.log('credential', credential)
+        // ...
+      })
     }
   }
 }

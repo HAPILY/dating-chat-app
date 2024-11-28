@@ -92,3 +92,6 @@ sw.*
 
 # Firebase
 .firebase
+
+# keys
+keys/
